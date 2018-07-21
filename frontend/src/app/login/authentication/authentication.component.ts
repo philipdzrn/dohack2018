@@ -18,25 +18,20 @@ export class AuthenticationComponent implements OnInit {
   }
 
   public credentialsOnChange($event: UserCredentials): void {
-    console.dir($event);
-    if($event) {
+    if ($event) {
       this.credentials = $event;
     }
   }
 
   public login(): void {
-
-    console.dir(this.credentials);
-    if(this.credentials) {
+    if (this.credentials) {
       this.authenticationService.login(this.credentials);
     }
-
   }
 
   public register(): void {
-    if(this.credentials) {
+    if (this.credentials) {
       this.authenticationService.register(this.credentials);
     }
   }
-
 }

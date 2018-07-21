@@ -1,18 +1,24 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {UserService} from "../user/user.service";
 import {Observable} from "rxjs";
+import {AuthenticationService} from "../login/authentication.service";
+import {UrlService} from "../utils/url.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChallengeService {
 
-  constructor(private httpClient: HttpClient,
-              private userService: UserService) { }
+  baseUrl: string = this.urlService.getBaseUrl() + "/challenge";
+
+  constructor(private urlService: UrlService,
+              private httpClient: HttpClient,
+              private authenticationService: AuthenticationService,
+  ) {
+  }
 
   public getChallenges(): Observable<any> {
-    let userId = this.userService.currentUserId;
+    let userId = this.authenticationService.getCurrentUserId();
 
     let url = 'http://localhost:8090/challenges/' + userId;
 
