@@ -28,7 +28,8 @@ public class UserController {
 
   @RequestMapping( value = "/profile" )
   public UserDTO getUser(@PathVariable("userId") String userId ) {
-    //userRepository.f
+    userRepository.findFirstByName( userId );
+
     UserDTO user = null;
     return user;
   }
