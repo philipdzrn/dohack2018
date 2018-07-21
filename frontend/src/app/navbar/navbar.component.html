@@ -3,7 +3,9 @@
     <mat-icon>list</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <a mat-menu-item routerLink="/challenge/create">Create Challenge</a>
-    <a mat-menu-item routerLink="/newsfeed">Newsfeed</a>
+    <a mat-menu-item (click)="onNavigate('New Challenge')" routerLink="/challenge/create">Create Challenge</a>
+    <a mat-menu-item (click)="onNavigate('Newsfeed')" routerLink="/newsfeed">Newsfeed</a>
   </mat-menu>
+
+  <span>{{headertitle}}</span>
 </mat-toolbar>

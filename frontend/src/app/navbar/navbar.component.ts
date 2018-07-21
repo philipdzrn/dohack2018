@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  headertitle: string = "Newsfeed";
+
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  public onNavigate(title: string): void {
+    this.headertitle = title;
   }
 
 }
