@@ -1,2 +1,2 @@
-<app-credentials></app-credentials>
-<app-authentication-actions></app-authentication-actions>
+<app-credentials (credentialsChanged)="credentialsOnChange($event)"></app-credentials>
+<app-authentication-actions (onLogin)="login()" (onRegister)="register()"></app-authentication-actions>

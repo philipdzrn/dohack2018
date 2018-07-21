@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {UserCredentials} from "../user-credentials";
 
 @Component({
   selector: 'app-credentials',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CredentialsComponent implements OnInit {
 
-  constructor() { }
+  credentials: UserCredentials;
 
-  ngOnInit() {
+  @Output() credentialsChanged = new EventEmitter();
+
+  constructor() {
   }
 
+  ngOnInit() {
+    this.credentials = new UserCredentials();
+  }
+
+  public credentialsOnChange() {
+    if (this.credentials.username && this.credentials.password) {
+      this.credentialsChanged.emit(this.credentials);
+    }
+  }
 }
