@@ -42,7 +42,7 @@ const appRoutes: Routes = [
   {path: 'challenge/create', component: ChallengeWizardComponent},
   {path: 'ranking', component: RankingComponent},
   {path: 'challenge/:id', component: ChallengeComponent},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile/:id', component: ProfileComponent},
   {
     path: '',
     redirectTo: '/newsfeed',
