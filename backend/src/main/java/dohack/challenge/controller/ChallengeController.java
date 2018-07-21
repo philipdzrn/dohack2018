@@ -37,7 +37,7 @@ public class ChallengeController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.PUT)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public ResponseEntity createChallenge(@RequestHeader(value = "userid") Integer userId, @RequestBody ChallengeDTO challengeDTO) {
         challengeService.createNewChallenge(userId, challengeDTO);
         return new ResponseEntity(HttpStatus.CREATED);

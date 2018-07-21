@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Challenge} from "../challenge/challenge";
+import {ChallengeService} from "../challenge/challenge.service";
 
 @Component({
   selector: 'app-challenge-wizard',
@@ -10,7 +11,7 @@ export class ChallengeWizardComponent implements OnInit {
 
   challenge: Challenge;
 
-  constructor() { }
+  constructor(private challengeService: ChallengeService) { }
 
   ngOnInit() {
     this.challenge = new Challenge();
@@ -18,6 +19,7 @@ export class ChallengeWizardComponent implements OnInit {
 
   public onSubmit() {
 
+    this.challengeService.createChallenge(this.challenge).subscribe();
   }
 
   public onCancel() {

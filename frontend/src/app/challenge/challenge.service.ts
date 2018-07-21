@@ -10,7 +10,7 @@ import {Challenge} from "./challenge";
 })
 export class ChallengeService {
 
-  baseUrl: string = this.urlService.getBaseUrl() + "challenges/";
+  baseUrl: string = this.urlService.getBaseUrl();
 
   constructor(private urlService: UrlService,
               private httpClient: HttpClient,
@@ -21,7 +21,7 @@ export class ChallengeService {
   public getChallenges(): Observable<Challenge[]> {
     let userId = this.authenticationService.getCurrentUserId();
 
-    let url = this.baseUrl + userId;
+    let url = this.baseUrl + "users/" + userId + "/challenges";
 
     return this.httpClient.get<Challenge[]>(url);
   }
@@ -30,8 +30,10 @@ export class ChallengeService {
     let url = this.baseUrl + id;
   }
 */
-  public updateChallenge(challenge: Challenge) {
+  public createChallenge(challenge: Challenge): Observable<any> {
+    let url = this.baseUrl + "challenges/";
 
-    // TODO
+    console.dir(challenge);
+    return this.httpClient.post(url, challenge);
   }
 }
