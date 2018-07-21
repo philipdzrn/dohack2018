@@ -16,9 +16,13 @@ public class ChallengeDTO {
 
     public Integer goal;
 
+    public Integer currentValue;
+
     public Boolean isFinished;
     
     public Date createdAt;
+
+    public Date updateddAt;
     
     public User creator;
     
@@ -88,6 +92,22 @@ public class ChallengeDTO {
     public void setCreator(User creator) {
         this.creator = creator;
     }
-    
+
+    public Integer getCurrentValue() {
+        return currentValue;
+    }
+
+    public void setCurrentValue(Integer currentValue) {
+        this.currentValue = currentValue;
+    }
+
+    public Date getUpdateddAt() {
+        return updateddAt;
+    }
+
+    public void setUpdateddAt(Date updateddAt) {
+        this.updateddAt = updateddAt;
+    }
+
     //endregion
 }
