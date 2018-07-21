@@ -3,8 +3,6 @@ package dohack.challenge.service;
 import dohack.challenge.dto.ChallengeDTO;
 import dohack.challenge.model.Challenge;
 import dohack.challenge.repo.ChallengeRepository;
-import dohack.user.model.User;
-import dohack.user.repo.UserRepository;
 import dohack.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,31 +16,29 @@ public class ChallengeService {
     @Autowired
     private ChallengeRepository challengeRepository;
 
-    // TODO: entfernen
-    @Autowired
-    private UserRepository userRepository;
-
     @Autowired
     private UserService userService;
 
-    public List<Challenge> getChallengesByUser(Integer userId) {
-        return challengeRepository.findByCreator(userRepository.findById(userId).get());
+    public List<ChallengeDTO> getChallengesByUser(Integer userId) {
+        List<Challenge> challenges = challengeRepository.findByCreator(userService.getUser(userId));
+        return getAllChallengeDTOs(challenges);
     }
 
-    public List<Challenge> getChallengesByUser(String userId) {
-        return challengeRepository.findByCreator(userRepository.findFirstByName(userId));
+    public List<ChallengeDTO> getChallengesByUser(String userId) {
+        List<Challenge> challenges = challengeRepository.findByCreator(userService.getUser(userId));
+        return getAllChallengeDTOs(challenges);
     }
 
+    public Challenge updateChallenge(Challenge challenge) {
+        //TODO
+        return challenge;
+    }
 
     public List<Challenge> getAllChallenges() {
         return (List) challengeRepository.findAll();
     }
 
     public Challenge createNewChallenge(ChallengeDTO challengeDTO, String userId) {
-
-        // TODO:
-        User user = userRepository.findFirstByName(userId);
-
         Challenge challenge = new Challenge();
         challenge.setName(challengeDTO.getName());
         challenge.setDescription(challengeDTO.getDescription());
@@ -50,7 +46,7 @@ public class ChallengeService {
         challenge.setEndDate(challengeDTO.getEnd());
         challenge.setFinished(false);
         challenge.setGoal(challengeDTO.getGoal());
-        challenge.setCreator(user);
+        challenge.setCreator(userService.getUser(userId));
         return challengeRepository.save(challenge);
     }
 
@@ -66,18 +62,19 @@ public class ChallengeService {
         challengeDTO.setCreator(userService.getUserDTOFromUser(challenge.getCreator()));
         return challengeDTO;
     }
-    
+
     /**
      * Get all challenge DTOs from challenge list
+     *
      * @param challengesByUser
      * @return
      */
-    public List<ChallengeDTO> getAllChallengeDTOs(List<Challenge> challengesByUser){
+    public List<ChallengeDTO> getAllChallengeDTOs(List<Challenge> challengesByUser) {
         List<ChallengeDTO> challengeDTOS = new ArrayList<>();
-        for(Challenge challenge : challengesByUser){
+        for (Challenge challenge : challengesByUser) {
             challengeDTOS.add(getChallengeDTOFromChallenge(challenge));
         }
-        
+
         return challengeDTOS;
     }
 }

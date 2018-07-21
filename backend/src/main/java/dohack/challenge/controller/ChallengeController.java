@@ -9,14 +9,8 @@ import dohack.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -31,7 +25,12 @@ public class ChallengeController {
     //endregion
     
     //region Routes
-    
+    /*
+    @RequestMapping(value = "/{challengeId}", method = RequestMethod.POST)
+    public ResponseEntity<ChallengeDTO> updateChallenge(@RequestBody ChallengeDTO challengeDTO) {
+        challengeService.updateChallenge(challengeDTO);
+        return new ResponseEntity(challengeDTOS, HttpStatus.OK);
+    }*/
     /**
      * Return all challenges from a user
      * @param userId
@@ -41,10 +40,7 @@ public class ChallengeController {
     public ResponseEntity<List<Challenge>> getChallenges(@PathVariable Integer userId) {
 
         // Get all challenges by user
-        List<Challenge> challengesByUser = challengeService.getChallengesByUser(userId);
-        
-        // Create all challenge DTOs to send back to client
-        List<ChallengeDTO> challengeDTOS = this.challengeService.getAllChallengeDTOs(challengesByUser);
+        List<ChallengeDTO> challengeDTOS = challengeService.getChallengesByUser(userId);
         
         return new ResponseEntity(challengeDTOS, HttpStatus.OK);
     }

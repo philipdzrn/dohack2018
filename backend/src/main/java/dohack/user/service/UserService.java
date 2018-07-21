@@ -24,6 +24,14 @@ public class UserService {
         return userRepository.findFirstByNameAndPassword(name, password);
     }
 
+    public User getUser( Integer userId ) {
+        return userRepository.findById(userId).get();
+    }
+
+    public User getUser( String userId ) {
+        return userRepository.findFirstByName(userId);
+    }
+
     public UserDTO getUserDTOFromUser(User user) {
         UserDTO userDTO = new UserDTO();
         userDTO.setId(user.getId());
@@ -45,6 +53,15 @@ public class UserService {
         user.setPassword(password);
 
         return userRepository.save(user);
+    }
+
+    public List<ChallengeDTO> getChallenges( String userId ) {
+        return challengeService.getChallengesByUser(userId);
+    }
+
+    public List<ChallengeDTO> createNewChallenge(String userId, ChallengeDTO challengeDTO ) {
+        challengeService.createNewChallenge(challengeDTO,userId);
+        return challengeService.getChallengesByUser(userId);
     }
    
    /**
