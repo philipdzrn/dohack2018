@@ -36,11 +36,11 @@ public class Seeding {
    
    public void seedData(){
       // Create users
-      User david = new User("david", "david", 0, "david david david");
-      User john = new User("john", "john", 0, "john john john");
-      User marie = new User("marie", "marie", 0, "marie marie marie");
-      User sarah = new User("sarah", "sarah", 0, "sarah sarah sarah");
-      User tom = new User("tom", "tom", 0, "tom tom tom");
+      User david = new User("david", "david", "david david david");
+      User john = new User("john", "john", "john john john");
+      User marie = new User("marie", "marie", "marie marie marie");
+      User sarah = new User("sarah", "sarah", "sarah sarah sarah");
+      User tom = new User("tom", "tom", "tom tom tom");
    
       // Add to list
       ArrayList<User> users = new ArrayList<>();

@@ -64,7 +64,8 @@ public class ChallengeController {
         List<User> users = this.userService.getAllUsers();
 
         // Sort all users by numbChallengesFinished
-        users.sort((a, b) -> a.getNumberFinishedChallenges() - (b.getNumberFinishedChallenges()));
+        // todo number
+//        users.sort((a, b) -> a.getNumberFinishedChallenges() - (b.getNumberFinishedChallenges()));
 
         // Create DTOs to send back to client
         List<UserDTO> userDTOS = this.userService.getAllUserDTOs(users);
