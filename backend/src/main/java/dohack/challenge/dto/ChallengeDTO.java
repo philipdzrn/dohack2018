@@ -22,7 +22,7 @@ public class ChallengeDTO {
     
     public Date createdAt;
 
-    public Date updateddAt;
+    public Date updatedAt;
     
     public UserDTO creator;
     
@@ -102,11 +102,11 @@ public class ChallengeDTO {
     }
 
     public Date getUpdatedAt() {
-        return updateddAt;
+        return updatedAt;
     }
 
-    public void setUpdatedAt(Date updateddAt) {
-        this.updateddAt = updateddAt;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     //endregion
