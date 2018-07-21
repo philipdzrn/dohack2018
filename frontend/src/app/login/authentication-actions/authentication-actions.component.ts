@@ -9,9 +9,10 @@ export class AuthenticationActionsComponent implements OnInit {
 
   isSignUpModeActive: boolean;
 
-
   @Output() onLogin = new EventEmitter();
   @Output() onRegister = new EventEmitter();
+
+  @Output() onModeChanged = new EventEmitter();
 
   constructor() {
   }
@@ -25,5 +26,6 @@ export class AuthenticationActionsComponent implements OnInit {
 
   public switchMode() {
     this.isSignUpModeActive = !this.isSignUpModeActive;
+    this.onModeChanged.emit(this.isSignUpModeActive);
   }
 }

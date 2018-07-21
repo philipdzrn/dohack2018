@@ -9,7 +9,7 @@ import {UrlService} from "../utils/url.service";
 })
 export class ChallengeService {
 
-  baseUrl: string = this.urlService.getBaseUrl() + "/challenge";
+  baseUrl: string = this.urlService.getBaseUrl() + "challenges/";
 
   constructor(private urlService: UrlService,
               private httpClient: HttpClient,
@@ -20,7 +20,7 @@ export class ChallengeService {
   public getChallenges(): Observable<any> {
     let userId = this.authenticationService.getCurrentUserId();
 
-    let url = 'http://localhost:8090/challenges/' + userId;
+    let url = this.baseUrl + userId;
 
     return this.httpClient.get(url);
   }

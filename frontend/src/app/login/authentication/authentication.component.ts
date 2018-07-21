@@ -11,6 +11,8 @@ export class AuthenticationComponent implements OnInit {
 
   credentials: UserCredentials;
 
+  title: string = "Login";
+
   constructor(private authenticationService: AuthenticationService) {
   }
 
@@ -32,6 +34,14 @@ export class AuthenticationComponent implements OnInit {
   public register(): void {
     if (this.credentials) {
       this.authenticationService.register(this.credentials);
+    }
+  }
+
+  public modeChanged($event): void {
+    if ($event) {
+      this.title = "Register";
+    } else {
+      this.title = "Login";
     }
   }
 }

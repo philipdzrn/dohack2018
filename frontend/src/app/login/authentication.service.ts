@@ -12,7 +12,7 @@ export class AuthenticationService {
   constructor(private urlService: UrlService,
               private httpClient: HttpClient) { }
 
-  baseUrl: string = this.urlService.getBaseUrl() + "/auth";
+  baseUrl: string = this.urlService.getBaseUrl() + "auth";
   currentUserIdStorageKey: string = "currentUserId";
 
   public login(credentials: UserCredentials) {
