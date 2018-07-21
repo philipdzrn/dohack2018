@@ -1,7 +1,6 @@
 package dohack.challenge.controller;
 
 import dohack.challenge.dto.ChallengeDTO;
-import dohack.challenge.model.Challenge;
 import dohack.challenge.service.ChallengeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,16 +37,10 @@ public class ChallengeController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.PUT)
     public ResponseEntity createChallenge(@RequestHeader(value = "userid") Integer userId, @RequestBody ChallengeDTO challengeDTO) {
         challengeService.createNewChallenge(userId, challengeDTO);
         return new ResponseEntity(HttpStatus.CREATED);
-    }
-
-    @RequestMapping(value = "/users/{userId}/challenges", method = RequestMethod.GET)
-    public ResponseEntity<List<Challenge>> getUserChallengeDTOs(@PathVariable Integer userId) {
-        List<ChallengeDTO> challengeDTOS = challengeService.getChallengeDTOsByUser(userId);
-        return new ResponseEntity(challengeDTOS, HttpStatus.OK);
     }
 
     //endregion
