@@ -9,7 +9,7 @@ public class User {
     //region Attributes
     @Id
     @GeneratedValue
-    private Long id;
+    private Integer id;
 
     @Basic
     @Column
@@ -36,11 +36,11 @@ public class User {
     //endregion
     
     //region Getter Setter
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

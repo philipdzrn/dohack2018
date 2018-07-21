@@ -52,25 +52,6 @@ public class ChallengeController {
 
         return new ResponseEntity(challengeDTOS, HttpStatus.OK);
     }
-
-    /**
-     * Return list of all users sorted by number challenges finished
-     *
-     * @return
-     */
-    @RequestMapping(value = "/ranking", method = RequestMethod.GET)
-    public List<UserDTO> getRanking() {
-        // Get all users
-        List<User> users = this.userService.getAllUsers();
-
-        // Sort all users by numbChallengesFinished
-        // todo number
-//        users.sort((a, b) -> a.getNumberFinishedChallenges() - (b.getNumberFinishedChallenges()));
-
-        // Create DTOs to send back to client
-        List<UserDTO> userDTOS = this.userService.getAllUserDTOs(users);
-
-        return userDTOS;
-    }
+    
     //endregion
 }
