@@ -1,10 +1,8 @@
 package dohack.ranking.service;
 
 import dohack.challenge.dto.ChallengeDTO;
-import dohack.challenge.model.Challenge;
 import dohack.challenge.service.ChallengeService;
 import dohack.ranking.dto.RankingDTO;
-import dohack.user.dto.UserDTO;
 import dohack.user.model.User;
 import dohack.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +27,7 @@ public class RankingService {
     */
    public List<ChallengeDTO> getAllChallengesByUser(User user) {
       
-      return challengeService.getChallengesByUser(user.getId());
+      return challengeService.getChallengeDTOsByUser(user.getId());
    }
    
    /**

@@ -24,13 +24,24 @@ public class ChallengeController {
 
     //region Routes
 
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public List<ChallengeDTO> getChallenges() {
+        return challengeService.getAllChallengeDTOs(challengeService.getAllChallenges());
+    }
+
+
+    @RequestMapping(value = "/{challengeId}", method = RequestMethod.GET)
+    public ChallengeDTO getChallenge(@PathVariable("challengeId") Integer challengeId) {
+        return challengeService.getChallegeDTO(challengeId);
+    }
+
     /**
      * Update a Challenge
      *
      * @param challengeId
      * @return
      */
-    @RequestMapping(value = "/updateChallenge/{challengeId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/{challengeId}", method = RequestMethod.POST)
     public ResponseEntity updateCurrentValue(@PathVariable("challengeId") Integer challengeId, @RequestBody Integer currentValue) {
         challengeService.updateCurrentValue(challengeId, currentValue);
         return new ResponseEntity(HttpStatus.OK);
@@ -55,9 +66,9 @@ public class ChallengeController {
      * @param userId
      * @return
      */
-    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/users/{userId}/challenges", method = RequestMethod.GET)
     public ResponseEntity<List<Challenge>> getChallenges(@PathVariable Integer userId) {
-        List<ChallengeDTO> challengeDTOS = challengeService.getChallengesByUser(userId);
+        List<ChallengeDTO> challengeDTOS = challengeService.getChallengeDTOsByUser(userId);
         return new ResponseEntity(challengeDTOS, HttpStatus.OK);
     }
     

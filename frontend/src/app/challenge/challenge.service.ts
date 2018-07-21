@@ -26,7 +26,7 @@ export class ChallengeService {
     return this.httpClient.get<Challenge[]>(url);
   }
 
-  public getChallenge(id): Observable<Challenge> {
+  public getChallenge(id): Observable<Challenge>w {
     let url = this.baseUrl + id;
   }
 
