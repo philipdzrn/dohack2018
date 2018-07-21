@@ -6,7 +6,7 @@ export class Challenge {
   name: String;
   description: String;
   start: Date;
-  end: Date;
+  endDate: Date;
   currentValue: number;
   goal: number;
   isFinished: boolean;
