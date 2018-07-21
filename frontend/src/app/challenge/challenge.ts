@@ -5,5 +5,6 @@ export class Challenge {
   startDate: Date;
   endDate: Date;
   goal: number;
+  creator: string;
 
 }
