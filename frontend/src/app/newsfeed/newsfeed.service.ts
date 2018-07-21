@@ -15,8 +15,13 @@ export class NewsfeedService {
 
     let feed: Challenge[] = [];
     let challenge = new Challenge();
-    challenge.name = "Peter";
+
+    challenge.name = "Pushups";
+
+    challenge.creator = "Peter";
     challenge.description = "Beschreibung";
+    challenge.currentValue = 15;
+    challenge.goal = 35;
 
     feed.push(challenge);
     feed.push(challenge);
