@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  currentUserId = 1;
+  currentUserId: number;
 
   constructor() { }
 
