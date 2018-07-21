@@ -29,16 +29,18 @@ public class ChallengeService {
         return getAllChallengeDTOs(challenges);
     }
 
-    public Challenge updateChallenge(Challenge challenge) {
-        //TODO
-        return challenge;
+    public ChallengeDTO updateChallenge(ChallengeDTO challengeDTO) {
+        Challenge challenge = challengeRepository.findFirstByName(challengeDTO.getName());
+        //challenge.se
+
+        return challengeDTO;
     }
 
     public List<Challenge> getAllChallenges() {
         return (List) challengeRepository.findAll();
     }
 
-    public Challenge createNewChallenge(ChallengeDTO challengeDTO, String userId) {
+    public Challenge createNewChallenge(ChallengeDTO challengeDTO, Integer userId) {
         Challenge challenge = new Challenge();
         challenge.setName(challengeDTO.getName());
         challenge.setDescription(challengeDTO.getDescription());

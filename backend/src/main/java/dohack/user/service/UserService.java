@@ -59,7 +59,7 @@ public class UserService {
         return challengeService.getChallengesByUser(userId);
     }
 
-    public List<ChallengeDTO> createNewChallenge(String userId, ChallengeDTO challengeDTO ) {
+    public List<ChallengeDTO> createNewChallenge(Integer userId, ChallengeDTO challengeDTO ) {
         challengeService.createNewChallenge(challengeDTO,userId);
         return challengeService.getChallengesByUser(userId);
     }

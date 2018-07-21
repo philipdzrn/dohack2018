@@ -16,23 +16,24 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/challenges")
 public class ChallengeController {
-    
+
     //region Attributes
     @Autowired
     private ChallengeService challengeService;
     @Autowired
     private UserService userService;
     //endregion
-    
+
     //region Routes
-    /*
+
     @RequestMapping(value = "/{challengeId}", method = RequestMethod.POST)
     public ResponseEntity<ChallengeDTO> updateChallenge(@RequestBody ChallengeDTO challengeDTO) {
-        challengeService.updateChallenge(challengeDTO);
-        return new ResponseEntity(challengeDTOS, HttpStatus.OK);
-    }*/
+        return new ResponseEntity(challengeService.updateChallenge(challengeDTO), HttpStatus.OK);
+    }
+
     /**
      * Return all challenges from a user
+     *
      * @param userId
      * @return
      */
@@ -41,21 +42,22 @@ public class ChallengeController {
 
         // Get all challenges by user
         List<ChallengeDTO> challengeDTOS = challengeService.getChallengesByUser(userId);
-        
+
         return new ResponseEntity(challengeDTOS, HttpStatus.OK);
     }
-    
+
     /**
      * Return list of all users sorted by number challenges finished
+     *
      * @return
      */
     @RequestMapping(value = "/ranking", method = RequestMethod.GET)
-    public List<UserDTO> getRanking(){
+    public List<UserDTO> getRanking() {
         // Get all users
         List<User> users = this.userService.getAllUsers();
 
         // Sort all users by numbChallengesFinished
-        users.sort((a,b) -> a.getNumberFinishedChallenges() - (b.getNumberFinishedChallenges()));
+        users.sort((a, b) -> a.getNumberFinishedChallenges() - (b.getNumberFinishedChallenges()));
 
         // Create DTOs to send back to client
         List<UserDTO> userDTOS = this.userService.getAllUserDTOs(users);
