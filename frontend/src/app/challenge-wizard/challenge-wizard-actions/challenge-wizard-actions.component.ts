@@ -16,7 +16,7 @@ export class ChallengeWizardActionsComponent implements OnInit {
 
   }
 
-  public cancelSubmit(){
+  public cancel(){
 
   }
 
