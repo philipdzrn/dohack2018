@@ -3,7 +3,6 @@ package dohack.challenge.controller;
 import dohack.challenge.dto.ChallengeDTO;
 import dohack.challenge.model.Challenge;
 import dohack.challenge.service.ChallengeService;
-import dohack.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,14 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/challenges")
+@RequestMapping(value = "/challenge")
 public class ChallengeController {
 
     //region Attributes
     @Autowired
     private ChallengeService challengeService;
-    @Autowired
-    private UserService userService;
     //endregion
 
     //region Routes
@@ -41,7 +38,7 @@ public class ChallengeController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/createChallenge", method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ResponseEntity createChallenge(@RequestHeader(value = "userid") Integer userId, @RequestBody ChallengeDTO challengeDTO) {
         challengeService.createNewChallenge(userId, challengeDTO);
         return new ResponseEntity(HttpStatus.CREATED);
