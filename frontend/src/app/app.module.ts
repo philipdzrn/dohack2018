@@ -13,6 +13,9 @@ import { AuthenticationComponent } from './login/authentication/authentication.c
 import { CredentialsComponent } from './login/credentials/credentials.component';
 import { AuthenticationActionsComponent } from './login/authentication-actions/authentication-actions.component';
 import { LoginComponent } from './login/login.component';
+import { ChallengeWizardComponent } from './challenge-wizard/challenge-wizard.component';
+import { ChallengeWizardActionsComponent } from './challenge-wizard/challenge-wizard-actions/challenge-wizard-actions.component';
+import { ChallengeWizardDataComponent } from './challenge-wizard/challenge-wizard-data/challenge-wizard-data.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { LoginComponent } from './login/login.component';
     AuthenticationComponent,
     CredentialsComponent,
     AuthenticationActionsComponent,
-    LoginComponent
+    LoginComponent,
+    ChallengeWizardComponent,
+    ChallengeWizardActionsComponent,
+    ChallengeWizardDataComponent
   ],
   imports: [
     BrowserModule,
