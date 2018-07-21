@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-challenge-wizard-actions',
@@ -7,17 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChallengeWizardActionsComponent implements OnInit {
 
-  constructor() { }
+  @Output() submitted = new EventEmitter();
+  @Output() cancelled = new EventEmitter();
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
-  public createSubmit(){
-
+  public submit() {
+    this.submitted.emit();
   }
 
-  public cancel(){
-
+  public cancel() {
+    this.cancelled.emit();
   }
 
 }

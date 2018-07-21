@@ -1,21 +1,21 @@
 
   <form class="ChallengeCreateClass">
     <mat-form-field class="ChallengeCreateName">
-      <input matInput (change)="challengeCreateOnChange()" placeholder="Name">
+      <input matInput name="nameinput" (change)="challengeCreateOnChange()" [(ngModel)]="challenge.name" placeholder="Name">
     </mat-form-field>
 
     <mat-form-field class="ChallengeDescription">
-      <textarea matInput (change)="challengeCreateOnChange()" placeholder="Description"></textarea>
+      <textarea matInput name="descriptioninput" (change)="challengeCreateOnChange()" [(ngModel)]="challenge.description" placeholder="Description"></textarea>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput [matDatepicker]="challengeEndDate" placeholder="Choose an end date">
+      <input matInput name="enddateinput" [matDatepicker]="challengeEndDate" [(ngModel)]="challenge.endDate" placeholder="Choose an end date">
       <mat-datepicker-toggle matSuffix [for]="challengeEndDate"></mat-datepicker-toggle>
       <mat-datepicker #challengeEndDate></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field class="ChallengeGoalValue">
-      <textarea matInput (change)="challengeCreateOnChange()" placeholder="Goal value"></textarea>
+      <textarea matInput name="goalinput" (change)="challengeCreateOnChange()" [(ngModel)]="challenge.goal" placeholder="Goal value"></textarea>
     </mat-form-field>
 
   </form>

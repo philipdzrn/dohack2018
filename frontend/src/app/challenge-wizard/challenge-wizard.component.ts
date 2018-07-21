@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Challenge} from "../challenge/challenge";
 
 @Component({
   selector: 'app-challenge-wizard',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChallengeWizardComponent implements OnInit {
 
+  challenge: Challenge;
+
   constructor() { }
 
   ngOnInit() {
+    this.challenge = new Challenge();
+  }
+
+  public onSubmit() {
+
+  }
+
+  public onCancel() {
+    this.challenge = new Challenge();
+  }
+
+  public onChallengeChange($event) {
+
   }
 
 }
