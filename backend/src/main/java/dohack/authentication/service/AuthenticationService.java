@@ -22,10 +22,20 @@ public class AuthenticationService {
             throw new UnauthorizedException();
         }
 
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(user.getId());
-        userDTO.setName(user.getName());
 
-        return userDTO;
+        return userService.getUserDTOFromUser(user);
     }
+
+    public UserDTO register(LoginDTO loginDTO) {
+        User user = userService.getUser(loginDTO.getUsername(), loginDTO.getPassword());
+        if(user != null) {
+            return userService.getUserDTOFromUser(user);
+        }
+
+        User newUser = userService.createNewUser(loginDTO.getUsername(), loginDTO.getPassword());
+
+        return userService.getUserDTOFromUser(newUser);
+    }
+
+
 }
