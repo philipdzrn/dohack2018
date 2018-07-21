@@ -36,6 +36,7 @@ import { RankingComponent } from './ranking/ranking.component';
 const appRoutes: Routes = [
   { path: 'newsfeed', component: NewsfeedComponent },
   { path: 'challenge/create', component: ChallengeWizardComponent },
+  { path: 'ranking', component: RankingComponent},
   { path: '',
     redirectTo: '/newsfeed',
     pathMatch: 'full'
