@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/challenge")
+@RequestMapping(value = "/challenges")
 public class ChallengeController {
 
     //region Attributes
