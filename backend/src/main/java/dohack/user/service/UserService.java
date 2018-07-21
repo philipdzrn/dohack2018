@@ -90,6 +90,19 @@ public class UserService {
     }
 
     /**
+     * Get all existing UsersDTO
+     *
+     * @return
+     */
+    public List<UserDTO> getAllUserDTOs() {
+        List<UserDTO> userDTOs = new ArrayList<>();
+        for( User user : getAllUsers() ) {
+            userDTOs.add(getUserDTOFromUser(user));
+        }
+        return userDTOs;
+    }
+
+    /**
      * Create a new user with name and password
      *
      * @param name
@@ -111,7 +124,7 @@ public class UserService {
      * @return
      */
     public List<ChallengeDTO> getChallenges(Integer userId) {
-        return challengeService.getChallengesByUser(userId);
+        return challengeService.getChallengeDTOsByUser(userId);
     }
 
     /**

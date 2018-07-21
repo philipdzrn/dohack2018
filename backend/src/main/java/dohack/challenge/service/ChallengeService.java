@@ -26,7 +26,7 @@ public class ChallengeService {
      * @param userId
      * @return
      */
-    public List<ChallengeDTO> getChallengesByUser(Integer userId) {
+    public List<ChallengeDTO> getChallengeDTOsByUser(Integer userId) {
         List<Challenge> challenges = challengeRepository.findByCreator(userService.getUser(userId));
         return getAllChallengeDTOs(challenges);
     }
@@ -46,15 +46,6 @@ public class ChallengeService {
             challenge.setFinished(true);
 
         challengeRepository.save(challenge);
-    }
-
-    /**
-     * Returns all existing Challenges
-     *
-     * @return
-     */
-    public List<Challenge> getAllChallenges() {
-        return (List) challengeRepository.findAll();
     }
 
     /**
@@ -98,6 +89,23 @@ public class ChallengeService {
         challengeDTO.setCurrentValue(challenge.getCurrentValue());
         challengeDTO.setUpdatedAt(challenge.getUpdatedAt());
         return challengeDTO;
+    }
+
+    public Challenge getChallenge( Integer challengeId ) {
+        return challengeRepository.findById(challengeId).get();
+    }
+
+    public ChallengeDTO getChallegeDTO( Integer challengeId ) {
+        return getChallengeDTOFromChallenge( getChallenge(challengeId) );
+    }
+
+    /**
+     * Returns all existing Challenges
+     *
+     * @return
+     */
+    public List<Challenge> getAllChallenges() {
+        return (List) challengeRepository.findAll();
     }
 
     /**
