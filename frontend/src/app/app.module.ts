@@ -14,7 +14,8 @@ import {
   MatIconModule,
   MatListModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatMenuModule
 } from '@angular/material';
 
 import {AppComponent} from './app.component';
@@ -60,6 +61,7 @@ import {NewsfeedChallengeComponent} from './newsfeed/newsfeed-challenge/newsfeed
     MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
