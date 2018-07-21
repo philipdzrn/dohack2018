@@ -65,11 +65,6 @@ public class UserService {
         userRepository.save(user);
     }
 
-    //TODO select statement which counts the finished challenges and then update the count-value
-    public void updateUserNumberFinishedChallenges(Integer userId ) {
-        User user = getUser(userId);
-    }
-
     /**
      * Get UserDTO from User
      *
@@ -116,18 +111,6 @@ public class UserService {
      * @return
      */
     public List<ChallengeDTO> getChallenges(Integer userId) {
-        return challengeService.getChallengesByUser(userId);
-    }
-
-    /**
-     * Create a new Challenge with the userId and the challengeDTO
-     *
-     * @param userId
-     * @param challengeDTO
-     * @return
-     */
-    public List<ChallengeDTO> createNewChallenge(Integer userId, ChallengeDTO challengeDTO) {
-        challengeService.createNewChallenge(challengeDTO, userId);
         return challengeService.getChallengesByUser(userId);
     }
 

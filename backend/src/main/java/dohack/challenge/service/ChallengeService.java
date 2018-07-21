@@ -33,13 +33,19 @@ public class ChallengeService {
 
     /**
      * Update currentValue of a Challenge
+     *
      * @param challengeId
      * @param currentValue
      */
-    public void updateCurrentValue( Integer challengeId, Integer currentValue  ) {
+    public void updateCurrentValue(Integer challengeId, Integer currentValue) {
         Challenge challenge = challengeRepository.findById(challengeId).get();
-        challenge.setUpdatedAt(new Date() );
+        challenge.setUpdatedAt(new Date());
         challenge.setCurrentValue(currentValue);
+
+        if( currentValue >= challenge.getGoal() )
+            challenge.setFinished(true);
+
+        challengeRepository.save(challenge);
     }
 
     /**
@@ -58,7 +64,7 @@ public class ChallengeService {
      * @param userId
      * @return
      */
-    public Challenge createNewChallenge(ChallengeDTO challengeDTO, Integer userId) {
+    public void createNewChallenge(Integer userId, ChallengeDTO challengeDTO) {
         Challenge challenge = new Challenge();
         challenge.setName(challengeDTO.getName());
         challenge.setDescription(challengeDTO.getDescription());
@@ -69,7 +75,7 @@ public class ChallengeService {
         challenge.setCreator(userService.getUser(userId));
         challenge.setCurrentValue(0);
         challenge.setUpdatedAt(null);
-        return challengeRepository.save(challenge);
+        challengeRepository.save(challenge);
     }
 
     /**

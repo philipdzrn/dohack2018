@@ -21,15 +21,14 @@ public class ChallengeDTO {
     public Integer currentValue;
 
     public boolean isFinished;
-    
+
     public Date createdAt;
 
     public Date updatedAt;
-    
+
     public UserDTO creator;
-    
-    
-    
+
+
     //region Getter Setter
     public Integer getId() {
         return id;
@@ -86,19 +85,19 @@ public class ChallengeDTO {
     public void setFinished(Boolean finished) {
         isFinished = finished;
     }
-    
+
     public Date getCreatedAt() {
         return createdAt;
     }
-    
+
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
-    
+
     public UserDTO getCreator() {
         return creator;
     }
-    
+
     public void setCreator(UserDTO creator) {
         this.creator = creator;
     }

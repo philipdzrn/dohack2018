@@ -3,8 +3,6 @@ package dohack.challenge.controller;
 import dohack.challenge.dto.ChallengeDTO;
 import dohack.challenge.model.Challenge;
 import dohack.challenge.service.ChallengeService;
-import dohack.user.dto.UserDTO;
-import dohack.user.model.User;
 import dohack.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,10 +30,23 @@ public class ChallengeController {
      * @param challengeId
      * @return
      */
-    @RequestMapping(value = "/{challengeId}", method = RequestMethod.POST)
-    public ResponseEntity updateChallenge(@PathVariable Integer challengeId, @RequestBody Integer currentValue ) {
+    @RequestMapping(value = "/updateChallenge/{challengeId}", method = RequestMethod.POST)
+    public ResponseEntity updateCurrentValue(@PathVariable("challengeId") Integer challengeId, @RequestBody Integer currentValue) {
         challengeService.updateCurrentValue(challengeId, currentValue);
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    /**
+     * Create a new Challenge
+     *
+     * @param userId
+     * @param challengeDTO
+     * @return
+     */
+    @RequestMapping(value = "/{userId}/createChallenge", method = RequestMethod.POST )
+    public ResponseEntity createChallenge(@PathVariable("userId") Integer userId, @RequestBody ChallengeDTO challengeDTO) {
+        challengeService.createNewChallenge(userId,challengeDTO);
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 
     /**
@@ -46,10 +57,7 @@ public class ChallengeController {
      */
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public ResponseEntity<List<Challenge>> getChallenges(@PathVariable Integer userId) {
-
-        // Get all challenges by user
         List<ChallengeDTO> challengeDTOS = challengeService.getChallengesByUser(userId);
-
         return new ResponseEntity(challengeDTOS, HttpStatus.OK);
     }
     
