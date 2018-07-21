@@ -30,6 +30,24 @@ import {ChallengeWizardActionsComponent} from './challenge-wizard/challenge-wiza
 import {ChallengeWizardDataComponent} from './challenge-wizard/challenge-wizard-data/challenge-wizard-data.component';
 import {NewsfeedComponent} from './newsfeed/newsfeed.component';
 import {NewsfeedChallengeComponent} from './newsfeed/newsfeed-challenge/newsfeed-challenge.component';
+import {RouterModule, Routes} from "@angular/router";
+
+const appRoutes: Routes = [
+  { path: '', component: NewsfeedComponent },
+  // { path: '/:id',      component: HeroDetailComponent },
+  /*
+  {
+    path: 'heroes',
+    component: HeroListComponent,
+    data: { title: 'Heroes List' }
+  },
+  { path: '',
+    redirectTo: '/heroes',
+    pathMatch: 'full'
+  },
+  { path: '**', component: PageNotFoundComponent }
+  */
+];
 
 @NgModule({
   declarations: [
@@ -46,6 +64,10 @@ import {NewsfeedChallengeComponent} from './newsfeed/newsfeed-challenge/newsfeed
     NewsfeedChallengeComponent
   ],
   imports: [
+    RouterModule.forRoot(
+      appRoutes,
+      {enableTracing: true}
+    ),
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,

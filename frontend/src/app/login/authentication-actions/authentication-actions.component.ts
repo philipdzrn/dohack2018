@@ -21,7 +21,7 @@ export class AuthenticationActionsComponent implements OnInit {
   }
 
   public submit(): void {
-    this.isSignUpModeActive ? this.onLogin.emit() : this.onRegister.emit();
+    this.isSignUpModeActive ? this.onRegister.emit() : this.onLogin.emit();
   }
 
   public switchMode() {

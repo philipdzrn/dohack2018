@@ -6,6 +6,8 @@ import java.util.Date;
 
 public class ChallengeDTO {
 
+    public Long id;
+
     public String name;
 
     public String description;
@@ -29,6 +31,14 @@ public class ChallengeDTO {
     
     
     //region Getter Setter
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }

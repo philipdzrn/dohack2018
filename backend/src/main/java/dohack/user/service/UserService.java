@@ -28,10 +28,6 @@ public class UserService {
         return userRepository.findById(userId).get();
     }
 
-    public User getUser( String userId ) {
-        return userRepository.findFirstByName(userId);
-    }
-
     public UserDTO getUserDTOFromUser(User user) {
         UserDTO userDTO = new UserDTO();
         userDTO.setId(user.getId());
@@ -55,11 +51,11 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public List<ChallengeDTO> getChallenges( String userId ) {
+    public List<ChallengeDTO> getChallenges( Integer userId ) {
         return challengeService.getChallengesByUser(userId);
     }
 
-    public List<ChallengeDTO> createNewChallenge(String userId, ChallengeDTO challengeDTO ) {
+    public List<ChallengeDTO> createNewChallenge(Integer userId, ChallengeDTO challengeDTO ) {
         challengeService.createNewChallenge(challengeDTO,userId);
         return challengeService.getChallengesByUser(userId);
     }
