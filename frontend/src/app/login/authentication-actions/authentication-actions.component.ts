@@ -26,5 +26,4 @@ export class AuthenticationActionsComponent implements OnInit {
   public switchMode() {
     this.isSignUpModeActive = !this.isSignUpModeActive;
   }
-
 }
