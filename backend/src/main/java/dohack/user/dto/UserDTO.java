@@ -2,6 +2,14 @@ package dohack.user.dto;
 
 public class UserDTO {
 
+    private Long id;
+
+    private String name;
+
+    private String description;
+
+    private Integer numberFinishedChallenges;
+
     public Long getId() {
         return id;
     }
@@ -9,8 +17,6 @@ public class UserDTO {
     public void setId(Long id) {
         this.id = id;
     }
-
-    private Long id;
 
     public String getName() {
         return name;
@@ -20,5 +26,19 @@ public class UserDTO {
         this.name = name;
     }
 
-    private String name;
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getNumberFinishedChallenges() {
+        return numberFinishedChallenges;
+    }
+
+    public void setNumberFinishedChallenges(Integer numberFinishedChallenges) {
+        this.numberFinishedChallenges = numberFinishedChallenges;
+    }
 }

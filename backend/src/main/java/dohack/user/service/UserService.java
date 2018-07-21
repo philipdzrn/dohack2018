@@ -1,6 +1,7 @@
 package dohack.user.service;
 
-import dohack.authentication.dto.LoginDTO;
+import dohack.challenge.dto.ChallengeDTO;
+import dohack.challenge.service.ChallengeService;
 import dohack.user.dto.UserDTO;
 import dohack.user.model.User;
 import dohack.user.repo.UserRepository;
@@ -12,6 +13,9 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private ChallengeService challengeService;
 
     public User getUser(String name, String password) {
         return userRepository.findFirstByNameAndPassword(name, password);
@@ -25,6 +29,11 @@ public class UserService {
         return userDTO;
     }
 
+    public ChallengeDTO createNewChallenge() {
+        //Challenge challenge = challengeService.getChallenge()
+        return challengeService.getChallengeDTOFromChallenge(challenge);
+    }
+
     public User createNewUser(String name, String password) {
         User user = new User();
         user.setName(name);
@@ -32,6 +41,4 @@ public class UserService {
 
         return userRepository.save(user);
     }
-
-
 }
