@@ -38,6 +38,10 @@ public class Challenge implements Serializable {
     @Basic
     @Column
     private Boolean isFinished;
+    
+    @Basic
+    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Date createdAt;
 
     @ManyToOne
     private User creator;
@@ -111,5 +115,14 @@ public class Challenge implements Serializable {
     public void setCreator(User creator) {
         this.creator = creator;
     }
+    
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+    
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+    
     //endregion
 }

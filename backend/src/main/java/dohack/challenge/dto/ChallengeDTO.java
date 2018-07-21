@@ -1,5 +1,7 @@
 package dohack.challenge.dto;
 
+import dohack.user.model.User;
+
 import java.util.Date;
 
 public class ChallengeDTO {
@@ -15,7 +17,12 @@ public class ChallengeDTO {
     public Integer goal;
 
     public Boolean isFinished;
-
+    
+    public Date createdAt;
+    
+    public User creator;
+    
+    //region Getter Setter
     public String getName() {
         return name;
     }
@@ -63,13 +70,5 @@ public class ChallengeDTO {
     public void setFinished(Boolean finished) {
         isFinished = finished;
     }
-
-  /* TODO remove
-  public String getMessage() {
-    return message;
-  }
-
-  private String message = "Erfolg";
-  */
-
+    //endregion
 }

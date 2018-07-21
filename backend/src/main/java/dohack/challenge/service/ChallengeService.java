@@ -20,4 +20,8 @@ public class ChallengeService {
     public List<Challenge> getChallengesByUser(Integer userId) {
         return challengeRepository.findByCreator(userRepository.findById(userId).get());
     }
+    
+    public List<Challenge> getAllChallenges() {
+        return (List)challengeRepository.findAll();
+    }
 }
