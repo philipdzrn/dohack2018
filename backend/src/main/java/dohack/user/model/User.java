@@ -1,14 +1,40 @@
 package dohack.user.model;
 
-import dohack.challenge.model.Challenge;
-
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
 public class User {
 
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @Basic
+    @Column
+    private String name;
+
+    @Basic
+    @Column
+    private String password;
+
+    @Basic
+    @Column
+    private Integer numberFinishedChallenges;
+
+    @Basic
+    @Column
+    private String description;
+
+    /*
+    @OneToMany( targetEntity = Challenge.class )
+    List<Challenge> challenges;
+
+    @OneToMany( targetEntity = UserLikesChallenge.class )
+    List<UserLikesChallenge> challengesLiked;
+    */
+
+    //region Getter Setter
     public Long getId() {
         return id;
     }
@@ -33,18 +59,20 @@ public class User {
         this.password = password;
     }
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    public Integer getNumberFinishedChallenges() {
+        return numberFinishedChallenges;
+    }
 
-    @Basic
-    @Column
-    private String name;
+    public void setNumberFinishedChallenges(Integer numberFinishedChallenges) {
+        this.numberFinishedChallenges = numberFinishedChallenges;
+    }
 
-     @Basic
-     @Column
-     private String password;
+    public String getDescription() {
+        return description;
+    }
 
-    @OneToMany
-    List<Challenge> challenges;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    //endregion
 }

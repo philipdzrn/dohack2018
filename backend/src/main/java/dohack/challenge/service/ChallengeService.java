@@ -2,10 +2,10 @@ package dohack.challenge.service;
 
 import dohack.challenge.model.Challenge;
 import dohack.challenge.repo.ChallengeRepository;
+import dohack.user.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -14,9 +14,10 @@ public class ChallengeService {
     @Autowired
     private ChallengeRepository challengeRepository;
 
-    public List<Challenge> getChallengesByUser(Integer userId) {
-     // challengeRepository.findByCreator()
+    @Autowired
+    private UserRepository userRepository;
 
-        return Collections.emptyList();
+    public List<Challenge> getChallengesByUser(Integer userId) {
+        return challengeRepository.findByCreator(userRepository.findById(userId).get());
     }
 }

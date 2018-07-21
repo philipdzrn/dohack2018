@@ -25,20 +25,91 @@ public class Challenge implements Serializable {
 
     @Basic
     @Column
-    private Date start;
+    private Date startDate;
+
+    @Basic
+    @Column
+    private Date endDate;
+
+    @Basic
+    @Column
+    private Integer goal;
+
+    @Basic
+    @Column
+    private Boolean isFinished;
+
+    @ManyToOne
+    private User creator;
 
     /*
-    @Basic
-    @Column
-    private Date end;
+    @OneToMany( targetEntity = UserLikesChallenge.class )
+    List<UserLikesChallenge> usersLiked;
     */
 
-    @Basic
-    @Column
-    private int goal;
+    //region Getter Setter
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    @Basic
-    @Column
-    private String creator;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public Integer getGoal() {
+        return goal;
+    }
+
+    public void setGoal(Integer goal) {
+        this.goal = goal;
+    }
+
+    public Boolean getFinished() {
+        return isFinished;
+    }
+
+    public void setFinished(Boolean finished) {
+        isFinished = finished;
+    }
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
+    //endregion
 }
