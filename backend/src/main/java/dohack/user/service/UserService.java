@@ -8,6 +8,8 @@ import dohack.user.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -25,14 +27,16 @@ public class UserService {
         UserDTO userDTO = new UserDTO();
         userDTO.setId(user.getId());
         userDTO.setName(user.getName());
+        userDTO.setDescription(user.getDescription());
+        userDTO.setNumberFinishedChallenges(user.getNumberFinishedChallenges());
 
         return userDTO;
     }
-
-    public ChallengeDTO createNewChallenge() {
-        //Challenge challenge = challengeService.getChallenge()
-        return challengeService.getChallengeDTOFromChallenge(challenge);
+    
+    public List<User> getAllUsers(){
+        return (List)this.userRepository.findAll();
     }
+    
 
     public User createNewUser(String name, String password) {
         User user = new User();

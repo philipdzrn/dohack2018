@@ -5,6 +5,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import {
+  MatNativeDateModule,
+  MatDatepickerModule,
   MatCardModule,
   MatButtonModule,
   MatToolbarModule,
@@ -56,6 +58,8 @@ import {NewsfeedChallengeComponent} from './newsfeed/newsfeed-challenge/newsfeed
     MatInputModule,
     FormsModule,
     MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
