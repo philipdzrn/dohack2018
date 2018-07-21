@@ -12,4 +12,12 @@ export class ChallengeWizardActionsComponent implements OnInit {
   ngOnInit() {
   }
 
+  public createSubmit(){
+
+  }
+
+  public cancelSubmit(){
+
+  }
+
 }
