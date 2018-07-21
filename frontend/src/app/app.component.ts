@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ChallengeService} from "./challenge/challenge.service";
+import {AuthenticationService} from "./login/authentication.service";
 
 @Component({
   selector: 'app-root',
@@ -8,15 +8,10 @@ import {ChallengeService} from "./challenge/challenge.service";
 })
 export class AppComponent {
 
-  constructor(private challengeService: ChallengeService) {
+  constructor(private authenticationService: AuthenticationService) {
   }
 
-  title = "";
-
-  testOnClick(): void {
-    this.challengeService.getChallenges().subscribe((result) => {
-      console.dir(result);
-      this.title = result.message;
-    });
+  public userIsAuthenticated(): boolean {
+    return !!this.authenticationService.getCurrentUserId();
   }
 }

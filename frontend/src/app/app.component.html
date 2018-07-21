@@ -1,3 +1,12 @@
 <app-navbar></app-navbar>
 
-<app-login></app-login>
+<div *ngIf=""></div>
+
+
+<div *ngIf="!userIsAuthenticated(); else showApp">
+  <app-login></app-login>
+</div>
+
+<ng-template #showApp>
+  Welcome
+</ng-template>
