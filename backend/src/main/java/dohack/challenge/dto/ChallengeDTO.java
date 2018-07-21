@@ -14,7 +14,7 @@ public class ChallengeDTO {
 
     public Date start;
 
-    public Date end;
+    public Date endDate;
 
     public Integer goal;
 
@@ -62,12 +62,12 @@ public class ChallengeDTO {
         this.start = start;
     }
 
-    public Date getEnd() {
-        return end;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setEnd(Date end) {
-        this.end = end;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public Integer getGoal() {

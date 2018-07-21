@@ -60,7 +60,7 @@ public class ChallengeService {
         challenge.setName(challengeDTO.getName());
         challenge.setDescription(challengeDTO.getDescription());
         challenge.setStartDate(challengeDTO.getStart());
-        challenge.setEndDate(challengeDTO.getEnd());
+        challenge.setEndDate(challengeDTO.getEndDate());
         challenge.setFinished(false);
         challenge.setGoal(challengeDTO.getGoal());
         challenge.setCreator(userService.getUser(userId));
@@ -81,7 +81,7 @@ public class ChallengeService {
         challengeDTO.setName(challenge.getName());
         challengeDTO.setDescription(challenge.getDescription());
         challengeDTO.setStart(challenge.getStartDate());
-        challengeDTO.setEnd(challenge.getEndDate());
+        challengeDTO.setEndDate(challenge.getEndDate());
         challengeDTO.setGoal(challenge.getGoal());
         challengeDTO.setFinished(challenge.getFinished());
         challengeDTO.setCreatedAt(challenge.getCreatedAt());
