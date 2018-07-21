@@ -25,9 +25,11 @@ public class Challenge implements Serializable {
     @Column
     private Date start;
 
+    /*
     @Basic
     @Column
     private Date end;
+    */
 
     @Basic
     @Column
