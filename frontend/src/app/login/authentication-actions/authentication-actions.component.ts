@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthenticationActionsComponent implements OnInit {
 
+  isSignUpModeActive: boolean;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public submit(): void {
+    alert("submit");
+  }
+
+  public switchMode() {
+    this.isSignUpModeActive = !this.isSignUpModeActive;
   }
 
 }
