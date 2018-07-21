@@ -23,6 +23,11 @@ public class ChallengeService {
         return challengeRepository.findByCreator(userRepository.findById(userId).get());
     }
 
+    public List<Challenge> getChallengesByUser(String userId) {
+        return challengeRepository.findByCreator(userRepository.findFirstByName(userId));
+    }
+
+
     public List<Challenge> getAllChallenges() {
         return (List) challengeRepository.findAll();
     }

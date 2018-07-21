@@ -33,14 +33,20 @@ public class UserController {
         return userService.getUserDTOFromUser(userRepository.findFirstByName(userId));
     }
     @RequestMapping(value = "/createChallenge", method = RequestMethod.POST )
-    public Challenge createChallenge(@PathVariable("userId") String userId, @RequestBody ChallengeDTO challengeDTO) {
+    public ResponseEntity<List<ChallengeDTO>> createChallenge(@PathVariable("userId") String userId, @RequestBody ChallengeDTO challengeDTO) {
         User user = userRepository.findFirstByName(userId);
-        Challenge challenge = challengeService.createNewChallenge(challengeDTO,user);
-        return userService.getUserDTOFromUser(userRepository.findFirstByName(userId));
+        challengeService.createNewChallenge(challengeDTO,user);
+        
+        List<Challenge> challenges = challengeService.getChallengesByUser(userId);
+        List<ChallengeDTO> dtoChallenges = new ArrayList<ChallengeDTO>();
+        for( Challenge challenge : challenges )
+            dtoChallenges.add( challengeService.getChallengeDTOFromChallenge(challenge) );
+
+        return new ResponseEntity(dtoChallenges, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/challenges", method = RequestMethod.GET)
-    public ResponseEntity<List<ChallengeDTO>> getChallenges(@PathVariable("userId") Integer userId) {
+    public ResponseEntity<List<ChallengeDTO>> getChallenges(@PathVariable("userId") String userId) {
         List<Challenge> challenges = challengeService.getChallengesByUser(userId);
         List<ChallengeDTO> dtoChallenges = new ArrayList<ChallengeDTO>();
         for( Challenge challenge : challenges )
