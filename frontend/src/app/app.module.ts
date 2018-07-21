@@ -32,16 +32,20 @@ import {NewsfeedComponent} from './newsfeed/newsfeed.component';
 import {NewsfeedChallengeComponent} from './newsfeed/newsfeed-challenge/newsfeed-challenge.component';
 import {RouterModule, Routes} from "@angular/router";
 import { RankingComponent } from './ranking/ranking.component';
+import { RankingEntryComponent } from './ranking/ranking-entry/ranking-entry.component';
+import {ChallengeComponent} from './challenge/challenge.component';
 
 const appRoutes: Routes = [
-  { path: 'newsfeed', component: NewsfeedComponent },
-  { path: 'challenge/create', component: ChallengeWizardComponent },
-  { path: 'ranking', component: RankingComponent},
-  { path: '',
+  {path: 'newsfeed', component: NewsfeedComponent},
+  {path: 'challenge/create', component: ChallengeWizardComponent},
+  {path: 'ranking', component: RankingComponent},
+  {path: 'challenge/:id', component: ChallengeComponent},
+  {
+    path: '',
     redirectTo: '/newsfeed',
     pathMatch: 'full'
   },
-  // { path: 'challenge/:id',      component: ChallengeDetailComponent },
+
   /*
   {
     path: 'heroes',
@@ -69,7 +73,9 @@ const appRoutes: Routes = [
     ChallengeWizardDataComponent,
     NewsfeedComponent,
     NewsfeedChallengeComponent,
-    RankingComponent
+    RankingComponent,
+    RankingEntryComponent,
+    ChallengeComponent,
   ],
   imports: [
     RouterModule.forRoot(

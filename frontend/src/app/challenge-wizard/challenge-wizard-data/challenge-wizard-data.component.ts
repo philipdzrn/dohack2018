@@ -11,6 +11,9 @@ export class ChallengeWizardDataComponent implements OnInit {
   @Input()
   challenge: Challenge;
 
+  @Input()
+  isDisabled: boolean = false;
+
   @Output() challengeChanged = new EventEmitter();
 
   constructor() {

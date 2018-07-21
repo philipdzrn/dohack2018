@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-content>
-    <app-challenge-wizard-data [challenge]="challenge" (challengeChanged)="onChallengeChange($event)"></app-challenge-wizard-data>
+    <app-challenge-wizard-data [isDisabled]="false" [challenge]="challenge" (challengeChanged)="onChallengeChange($event)"></app-challenge-wizard-data>
   </mat-card-content>
   <mat-card-actions>
     <app-challenge-wizard-actions (submitted)="onSubmit()" (cancelled)="onCancel()"></app-challenge-wizard-actions>

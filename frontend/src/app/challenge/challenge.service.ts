@@ -18,12 +18,16 @@ export class ChallengeService {
   ) {
   }
 
-  public getChallenges(): Observable<Challenge> {
+  public getChallenges(): Observable<Challenge[]> {
     let userId = this.authenticationService.getCurrentUserId();
 
     let url = this.baseUrl + userId;
 
-    return this.httpClient.get<Challenge>(url);
+    return this.httpClient.get<Challenge[]>(url);
+  }
+
+  public getChallenge(id): Observable<Challenge> {
+    let url = this.baseUrl + id;
   }
 
   public updateChallenge(challenge: Challenge) {

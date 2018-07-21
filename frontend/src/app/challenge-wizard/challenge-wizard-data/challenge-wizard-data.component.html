@@ -1,21 +1,21 @@
 
   <form class="ChallengeCreateClass">
     <mat-form-field class="ChallengeCreateName">
-      <input matInput name="nameinput" (change)="challengeCreateOnChange()" [(ngModel)]="challenge.name" placeholder="Name">
+      <input matInput [disabled]="isDisabled" name="nameinput" (change)="challengeCreateOnChange()" [(ngModel)]="challenge.name" placeholder="Name">
     </mat-form-field>
 
     <mat-form-field class="ChallengeDescription">
-      <textarea matInput name="descriptioninput" (change)="challengeCreateOnChange()" [(ngModel)]="challenge.description" placeholder="Description"></textarea>
+      <textarea matInput [disabled]="isDisabled" name="descriptioninput" (change)="challengeCreateOnChange()" [(ngModel)]="challenge.description" placeholder="Description"></textarea>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput name="enddateinput" [matDatepicker]="challengeEndDate" [(ngModel)]="challenge.endDate" placeholder="Choose an end date">
-      <mat-datepicker-toggle matSuffix [for]="challengeEndDate"></mat-datepicker-toggle>
-      <mat-datepicker #challengeEndDate></mat-datepicker>
+      <input matInput [disabled]="isDisabled" name="enddateinput" [matDatepicker]="challengeEndDate" [(ngModel)]="challenge.endDate" placeholder="Choose an end date">
+      <mat-datepicker-toggle [disabled]="isDisabled" matSuffix [for]="challengeEndDate"></mat-datepicker-toggle>
+      <mat-datepicker [disabled]="isDisabled" #challengeEndDate></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field class="ChallengeGoalValue">
-      <textarea matInput name="goalinput" (change)="challengeCreateOnChange()" [(ngModel)]="challenge.goal" placeholder="Goal value"></textarea>
+      <textarea matInput [disabled]="isDisabled" name="goalinput" (change)="challengeCreateOnChange()" [(ngModel)]="challenge.goal" placeholder="Goal value"></textarea>
     </mat-form-field>
 
   </form>
