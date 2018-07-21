@@ -9,7 +9,7 @@ import {UrlService} from "../utils/url.service";
 })
 export class ChallengeService {
 
-  baseUrl: string = this.urlService.getBaseUrl() + "/challenges/";
+  baseUrl: string = this.urlService.getBaseUrl() + "challenges/";
 
   constructor(private urlService: UrlService,
               private httpClient: HttpClient,
