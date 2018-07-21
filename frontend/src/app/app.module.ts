@@ -34,13 +34,14 @@ import {RouterModule, Routes} from "@angular/router";
 import { RankingComponent } from './ranking/ranking.component';
 import { RankingEntryComponent } from './ranking/ranking-entry/ranking-entry.component';
 import {ChallengeComponent} from './challenge/challenge.component';
-import { ProfilComponent } from './profil/profil.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes: Routes = [
   {path: 'newsfeed', component: NewsfeedComponent},
   {path: 'challenge/create', component: ChallengeWizardComponent},
   {path: 'ranking', component: RankingComponent},
   {path: 'challenge/:id', component: ChallengeComponent},
+  {path: 'profile', component: ProfileComponent},
   {
     path: '',
     redirectTo: '/newsfeed',
@@ -77,7 +78,7 @@ const appRoutes: Routes = [
     RankingComponent,
     RankingEntryComponent,
     ChallengeComponent,
-    ProfilComponent,
+    ProfileComponent,
   ],
   imports: [
     RouterModule.forRoot(
