@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Ranking} from "../ranking";
 
 @Component({
   selector: 'app-ranking-entry',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ranking-entry.component.css']
 })
 export class RankingEntryComponent implements OnInit {
+
+  @Input()
+  rankingEntry: Ranking;
 
   constructor() { }
 
