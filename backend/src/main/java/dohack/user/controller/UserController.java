@@ -34,8 +34,8 @@ public class UserController {
     }
     @RequestMapping(value = "/createChallenge", method = RequestMethod.POST )
     public ResponseEntity<List<ChallengeDTO>> createChallenge(@PathVariable("userId") String userId, @RequestBody ChallengeDTO challengeDTO) {
-        User user = userRepository.findFirstByName(userId);
-        challengeService.createNewChallenge(challengeDTO,user);
+
+        challengeService.createNewChallenge(challengeDTO,userId);
         
         List<Challenge> challenges = challengeService.getChallengesByUser(userId);
         List<ChallengeDTO> dtoChallenges = new ArrayList<ChallengeDTO>();

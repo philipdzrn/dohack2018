@@ -1,5 +1,6 @@
 package dohack.challenge.dto;
 
+import dohack.user.dto.UserDTO;
 import dohack.user.model.User;
 
 import java.util.Date;
@@ -20,7 +21,7 @@ public class ChallengeDTO {
     
     public Date createdAt;
     
-    public User creator;
+    public UserDTO creator;
     
     
     
@@ -81,11 +82,11 @@ public class ChallengeDTO {
         this.createdAt = createdAt;
     }
     
-    public User getCreator() {
+    public UserDTO getCreator() {
         return creator;
     }
     
-    public void setCreator(User creator) {
+    public void setCreator(UserDTO creator) {
         this.creator = creator;
     }
     

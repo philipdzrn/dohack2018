@@ -5,6 +5,7 @@ import dohack.challenge.model.Challenge;
 import dohack.challenge.repo.ChallengeRepository;
 import dohack.user.model.User;
 import dohack.user.repo.UserRepository;
+import dohack.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +17,12 @@ public class ChallengeService {
     @Autowired
     private ChallengeRepository challengeRepository;
 
+    // TODO: entfernen
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserService userService;
 
     public List<Challenge> getChallengesByUser(Integer userId) {
         return challengeRepository.findByCreator(userRepository.findById(userId).get());
@@ -32,7 +37,11 @@ public class ChallengeService {
         return (List) challengeRepository.findAll();
     }
 
-    public Challenge createNewChallenge(ChallengeDTO challengeDTO, User user) {
+    public Challenge createNewChallenge(ChallengeDTO challengeDTO, String userId) {
+
+        // TODO:
+        User user = userRepository.findFirstByName(userId);
+
         Challenge challenge = new Challenge();
         challenge.setName(challengeDTO.getName());
         challenge.setDescription(challengeDTO.getDescription());
@@ -53,7 +62,7 @@ public class ChallengeService {
         challengeDTO.setGoal(challenge.getGoal());
         challengeDTO.setFinished(challenge.getFinished());
         challengeDTO.setCreatedAt(challenge.getCreatedAt());
-        challengeDTO.setCreator(challenge.getCreator());
+        challengeDTO.setCreator(userService.getUserDTOFromUser(challenge.getCreator()));
         return challengeDTO;
     }
 }
