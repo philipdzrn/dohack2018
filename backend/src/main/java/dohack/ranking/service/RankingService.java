@@ -76,7 +76,7 @@ public class RankingService {
          rankingDTOS.add(createRankingDTO(user));
       }
       
-      rankingDTOS.sort(Comparator.comparingInt(RankingDTO::getNumbFinishedChallenges));
+      rankingDTOS.sort(Comparator.comparingInt(RankingDTO::getNumbFinishedChallenges).reversed());
       
       return rankingDTOS;
    }

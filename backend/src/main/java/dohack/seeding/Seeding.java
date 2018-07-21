@@ -55,7 +55,7 @@ public class Seeding {
       Challenge A = new Challenge("Push up", "AAAAA", new Date(), new Date(), 76, 9, false, new Date(), new Date(), david);
       Challenge B = new Challenge("Mana", "BBBBB", new Date(), new Date(), 12, 12, true, new Date(), new Date(), john);
       Challenge C = new Challenge("Blacklist", "CCCCC", new Date(), new Date(), 98, 98, true, new Date(), new Date(), david);
-      Challenge D = new Challenge("Computer", "DDDDD", new Date(), new Date(), 23, 10, false, new Date(), new Date(), tom);
+      Challenge D = new Challenge("Computer", "DDDDD", new Date(), new Date(), 23, 10, true, new Date(), new Date(), tom);
       Challenge E = new Challenge("Crazy", "EEEEE", new Date(), new Date(), 65, 34, false, new Date(), new Date(), sarah);
       Challenge F = new Challenge("Shit", "FFFFF", new Date(), new Date(), 98, 100, true, new Date(), new Date(), tom);
       Challenge G = new Challenge("Boom", "GGGGG", new Date(), new Date(), 45, 14, false, new Date(), new Date(), tom);

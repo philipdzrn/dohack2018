@@ -1,5 +1,5 @@
 export class Ranking {
-  userId: number;
-  name: String;
-  finishChallenges: number;
+  id: number;
+  userName: String;
+  numbFinishedChallenges: number;
 }
