@@ -18,7 +18,6 @@ export class AuthenticationActionsComponent implements OnInit {
 
   public submit(): void {
     this.isSignUpModeActive ? this.authenticationService.register() : this.authenticationService.login();
-    alert("submit");
   }
 
   public switchMode() {
