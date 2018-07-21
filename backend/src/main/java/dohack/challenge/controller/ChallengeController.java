@@ -44,10 +44,7 @@ public class ChallengeController {
         List<Challenge> challengesByUser = challengeService.getChallengesByUser(userId);
         
         // Create all challenge DTOs to send back to client
-        List<ChallengeDTO> challengeDTOS = new ArrayList<>();
-        for(Challenge challenge : challengesByUser){
-            challengeDTOS.add(this.challengeService.getChallengeDTOFromChallenge(challenge));
-        }
+        List<ChallengeDTO> challengeDTOS = this.challengeService.getAllChallengeDTOs(challengesByUser);
         
         return new ResponseEntity(challengeDTOS, HttpStatus.OK);
     }
@@ -65,10 +62,7 @@ public class ChallengeController {
         users.sort((a,b) -> a.getNumberFinishedChallenges() - (b.getNumberFinishedChallenges()));
 
         // Create DTOs to send back to client
-        List<UserDTO> userDTOS = new ArrayList<>();
-        for(User user : users ){
-            userDTOS.add(this.userService.getUserDTOFromUser(user));
-        }
+        List<UserDTO> userDTOS = this.userService.getAllUserDTOs(users);
 
         return userDTOS;
     }

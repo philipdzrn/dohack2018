@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Challenge} from "../../challenge/challenge";
 
 @Component({
   selector: 'app-challenge-wizard-data',
@@ -7,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChallengeWizardDataComponent implements OnInit {
 
-  constructor() { }
+  newUserChallenge: Challenge;
 
-  ngOnInit() {
+  @Output() newUserChallengeChanged = new EventEmitter();
+
+  constructor() {
   }
 
+  ngOnInit() {
+    this.newUserChallenge = new Challenge();
+  }
 
+  public challengeCreateOnChange() {
+    if (this.newUserChallenge.name && this.newUserChallenge.description && this.newUserChallenge.endDate && this.newUserChallenge.goal)
+      this.newUserChallengeChanged.emit(this.newUserChallenge);
+  }
 }

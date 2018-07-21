@@ -1,21 +1,34 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
-import {MatNativeDateModule, MatDatepickerModule, MatCardModule, MatButtonModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {FormsModule} from '@angular/forms';
+import {
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatCardModule,
+  MatButtonModule,
+  MatToolbarModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatListModule,
+  MatFormFieldModule,
+  MatInputModule
+} from '@angular/material';
 
-import { AppComponent } from './app.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { NavbarComponent } from './navbar/navbar.component';
-import { AuthenticationComponent } from './login/authentication/authentication.component';
-import { CredentialsComponent } from './login/credentials/credentials.component';
-import { AuthenticationActionsComponent } from './login/authentication-actions/authentication-actions.component';
-import { LoginComponent } from './login/login.component';
-import { ChallengeWizardComponent } from './challenge-wizard/challenge-wizard.component';
-import { ChallengeWizardActionsComponent } from './challenge-wizard/challenge-wizard-actions/challenge-wizard-actions.component';
-import { ChallengeWizardDataComponent } from './challenge-wizard/challenge-wizard-data/challenge-wizard-data.component';
+import {AppComponent} from './app.component';
+import {LayoutModule} from '@angular/cdk/layout';
+import {NavbarComponent} from './navbar/navbar.component';
+import {AuthenticationComponent} from './login/authentication/authentication.component';
+import {CredentialsComponent} from './login/credentials/credentials.component';
+import {AuthenticationActionsComponent} from './login/authentication-actions/authentication-actions.component';
+import {LoginComponent} from './login/login.component';
+import {ChallengeWizardComponent} from './challenge-wizard/challenge-wizard.component';
+import {ChallengeWizardActionsComponent} from './challenge-wizard/challenge-wizard-actions/challenge-wizard-actions.component';
+import {ChallengeWizardDataComponent} from './challenge-wizard/challenge-wizard-data/challenge-wizard-data.component';
+import {NewsfeedComponent} from './newsfeed/newsfeed.component';
+import {NewsfeedChallengeComponent} from './newsfeed/newsfeed-challenge/newsfeed-challenge.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +40,9 @@ import { ChallengeWizardDataComponent } from './challenge-wizard/challenge-wizar
     LoginComponent,
     ChallengeWizardComponent,
     ChallengeWizardActionsComponent,
-    ChallengeWizardDataComponent
+    ChallengeWizardDataComponent,
+    NewsfeedComponent,
+    NewsfeedChallengeComponent
   ],
   imports: [
     BrowserModule,
@@ -49,4 +64,5 @@ import { ChallengeWizardDataComponent } from './challenge-wizard/challenge-wizar
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

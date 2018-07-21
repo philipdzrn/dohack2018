@@ -8,6 +8,7 @@ import dohack.user.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -44,5 +45,20 @@ public class UserService {
         user.setPassword(password);
 
         return userRepository.save(user);
+    }
+   
+   /**
+    * Get all user DTOs from a user list
+    * @param users
+    * @return
+    */
+    public List<UserDTO> getAllUserDTOs(List<User> users){
+       // Create DTOs to send back to client
+       List<UserDTO> userDTOS = new ArrayList<>();
+       for(User user : users ){
+          userDTOS.add(getUserDTOFromUser(user));
+       }
+       
+       return userDTOS;
     }
 }

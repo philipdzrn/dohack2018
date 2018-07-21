@@ -4,6 +4,8 @@ export class Challenge {
   description: String;
   startDate: Date;
   endDate: Date;
+  currentValue: number;
   goal: number;
+  creator: string;
 
 }
