@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -31,16 +32,14 @@ public class ChallengeService {
     }
 
     /**
-     * Updates a Challenge
-     *
-     * @param challengeDTO
-     * @return
+     * Update currentValue of a Challenge
+     * @param challengeId
+     * @param currentValue
      */
-    public ChallengeDTO updateChallenge(ChallengeDTO challengeDTO) {
-        Challenge challenge = challengeRepository.findById(challengeDTO.getId()).get();
-        challenge.setUpdatedAt(challengeDTO.updatedAt);
-        challenge.setCurrentValue(challengeDTO.getCurrentValue());
-        return challengeDTO;
+    public void updateCurrentValue( Integer challengeId, Integer currentValue  ) {
+        Challenge challenge = challengeRepository.findById(challengeId).get();
+        challenge.setUpdatedAt(new Date() );
+        challenge.setCurrentValue(currentValue);
     }
 
     /**
@@ -68,6 +67,8 @@ public class ChallengeService {
         challenge.setFinished(false);
         challenge.setGoal(challengeDTO.getGoal());
         challenge.setCreator(userService.getUser(userId));
+        challenge.setCurrentValue(0);
+        challenge.setUpdatedAt(null);
         return challengeRepository.save(challenge);
     }
 
@@ -88,6 +89,8 @@ public class ChallengeService {
         challengeDTO.setFinished(challenge.getFinished());
         challengeDTO.setCreatedAt(challenge.getCreatedAt());
         challengeDTO.setCreator(userService.getUserDTOFromUser(challenge.getCreator()));
+        challengeDTO.setCurrentValue(challenge.getCurrentValue());
+        challengeDTO.setUpdatedAt(challenge.getUpdatedAt());
         return challengeDTO;
     }
 
@@ -99,9 +102,8 @@ public class ChallengeService {
      */
     public List<ChallengeDTO> getAllChallengeDTOs(List<Challenge> challengesByUser) {
         List<ChallengeDTO> challengeDTOS = new ArrayList<>();
-        for (Challenge challenge : challengesByUser) {
+        for (Challenge challenge : challengesByUser)
             challengeDTOS.add(getChallengeDTOFromChallenge(challenge));
-        }
 
         return challengeDTOS;
     }

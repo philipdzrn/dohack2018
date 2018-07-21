@@ -29,12 +29,13 @@ public class ChallengeController {
     /**
      * Update a Challenge
      *
-     * @param challengeDTO
+     * @param challengeId
      * @return
      */
     @RequestMapping(value = "/{challengeId}", method = RequestMethod.POST)
-    public ResponseEntity<ChallengeDTO> updateChallenge(@RequestBody ChallengeDTO challengeDTO) {
-        return new ResponseEntity(challengeService.updateChallenge(challengeDTO), HttpStatus.OK);
+    public ResponseEntity updateChallenge(@PathVariable Integer challengeId, @RequestBody Integer currentValue ) {
+        challengeService.updateCurrentValue(challengeId, currentValue);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     /**

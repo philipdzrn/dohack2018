@@ -37,30 +37,37 @@ public class UserService {
      * @param userId
      * @return
      */
-    public User getUser( Integer userId ) {
+    public User getUser(Integer userId) {
         return userRepository.findById(userId).get();
     }
 
     /**
      * Update the User-Name
+     *
      * @param userId
      * @param name
      */
-    public void updateUserName( Integer userId, String name ) {
-        User user = userRepository.findById(userId).get();
+    public void updateUserName(Integer userId, String name) {
+        User user = getUser(userId);
         user.setName(name);
         userRepository.save(user);
     }
 
     /**
      * Update the User-Description
+     *
      * @param userId
      * @param description
      */
-    public void updateUserDescription( Integer userId, String description ) {
-        User user = userRepository.findById(userId).get();
+    public void updateUserDescription(Integer userId, String description) {
+        User user = getUser(userId);
         user.setDescription(description);
         userRepository.save(user);
+    }
+
+    //TODO select statement which counts the finished challenges and then update the count-value
+    public void updateUserNumberFinishedChallenges(Integer userId ) {
+        User user = getUser(userId);
     }
 
     /**
@@ -84,8 +91,8 @@ public class UserService {
      *
      * @return
      */
-    public List<User> getAllUsers(){
-        return (List)this.userRepository.findAll();
+    public List<User> getAllUsers() {
+        return (List) this.userRepository.findAll();
     }
 
     /**
@@ -109,7 +116,7 @@ public class UserService {
      * @param userId
      * @return
      */
-    public List<ChallengeDTO> getChallenges( Integer userId ) {
+    public List<ChallengeDTO> getChallenges(Integer userId) {
         return challengeService.getChallengesByUser(userId);
     }
 
@@ -120,23 +127,24 @@ public class UserService {
      * @param challengeDTO
      * @return
      */
-    public List<ChallengeDTO> createNewChallenge(Integer userId, ChallengeDTO challengeDTO ) {
-        challengeService.createNewChallenge(challengeDTO,userId);
+    public List<ChallengeDTO> createNewChallenge(Integer userId, ChallengeDTO challengeDTO) {
+        challengeService.createNewChallenge(challengeDTO, userId);
         return challengeService.getChallengesByUser(userId);
     }
-   
-   /**
-    * Get all user DTOs from a user list
-    * @param users
-    * @return
-    */
-    public List<UserDTO> getAllUserDTOs(List<User> users){
-       // Create DTOs to send back to client
-       List<UserDTO> userDTOS = new ArrayList<>();
-       for(User user : users ){
-          userDTOS.add(getUserDTOFromUser(user));
-       }
-       
-       return userDTOS;
+
+    /**
+     * Get all user DTOs from a user list
+     *
+     * @param users
+     * @return
+     */
+    public List<UserDTO> getAllUserDTOs(List<User> users) {
+        // Create DTOs to send back to client
+        List<UserDTO> userDTOS = new ArrayList<>();
+        for (User user : users) {
+            userDTOS.add(getUserDTOFromUser(user));
+        }
+
+        return userDTOS;
     }
 }
