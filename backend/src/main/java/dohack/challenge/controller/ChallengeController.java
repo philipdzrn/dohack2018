@@ -1,8 +1,6 @@
 package dohack.challenge.controller;
 
-import dohack.challenge.dto.ChallengeDTO;
 import dohack.challenge.model.Challenge;
-import dohack.challenge.repo.ChallengeRepository;
 import dohack.challenge.service.ChallengeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
