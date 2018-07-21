@@ -33,8 +33,13 @@ import {NewsfeedChallengeComponent} from './newsfeed/newsfeed-challenge/newsfeed
 import {RouterModule, Routes} from "@angular/router";
 
 const appRoutes: Routes = [
-  { path: '', component: NewsfeedComponent },
-  // { path: '/:id',      component: HeroDetailComponent },
+  { path: 'newsfeed', component: NewsfeedComponent },
+  { path: 'challenge/create', component: ChallengeWizardComponent },
+  { path: '',
+    redirectTo: '/newsfeed',
+    pathMatch: 'full'
+  },
+  // { path: 'challenge/:id',      component: ChallengeDetailComponent },
   /*
   {
     path: 'heroes',
@@ -42,7 +47,7 @@ const appRoutes: Routes = [
     data: { title: 'Heroes List' }
   },
   { path: '',
-    redirectTo: '/heroes',
+    redirectTo: '/newsfeed',
     pathMatch: 'full'
   },
   { path: '**', component: PageNotFoundComponent }

@@ -1,8 +1,4 @@
 <mat-nav-list>
   <app-newsfeed-challenge mat-list-item *ngFor="let newsfeedItem of newsfeedItems"
-                          [newsfeedChallenge]="newsfeedItem"></app-newsfeed-challenge>
+                          [newsfeedChallenge]="newsfeedItem.challengeDTO"></app-newsfeed-challenge>
 </mat-nav-list>
-
-<!--
-<a mat-list-item href="..." *ngFor="let link of links"> {{ link }} </a>
--->
