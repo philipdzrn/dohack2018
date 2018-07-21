@@ -12,12 +12,5 @@ export class ChallengeWizardDataComponent implements OnInit {
   ngOnInit() {
   }
 
-  public createSubmit(){
-
-  }
-
-  public cancelSubmit(){
-
-  }
 
 }
