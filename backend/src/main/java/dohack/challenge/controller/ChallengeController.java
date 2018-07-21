@@ -26,6 +26,12 @@ public class ChallengeController {
 
     //region Routes
 
+    /**
+     * Update a Challenge
+     *
+     * @param challengeDTO
+     * @return
+     */
     @RequestMapping(value = "/{challengeId}", method = RequestMethod.POST)
     public ResponseEntity<ChallengeDTO> updateChallenge(@RequestBody ChallengeDTO challengeDTO) {
         return new ResponseEntity(challengeService.updateChallenge(challengeDTO), HttpStatus.OK);

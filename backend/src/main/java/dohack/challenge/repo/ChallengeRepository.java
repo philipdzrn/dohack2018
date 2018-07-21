@@ -10,7 +10,4 @@ public interface ChallengeRepository extends CrudRepository<Challenge, Integer> 
 
     List<Challenge> findByCreator(User creator);
 
-    Challenge findFirstByName( String name );
-
-    
 }

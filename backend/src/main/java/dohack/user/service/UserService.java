@@ -20,14 +20,55 @@ public class UserService {
     @Autowired
     private ChallengeService challengeService;
 
+    /**
+     * Get User by Name and Password
+     *
+     * @param name
+     * @param password
+     * @return
+     */
     public User getUser(String name, String password) {
         return userRepository.findFirstByNameAndPassword(name, password);
     }
 
+    /**
+     * Get User
+     *
+     * @param userId
+     * @return
+     */
     public User getUser( Integer userId ) {
         return userRepository.findById(userId).get();
     }
 
+    /**
+     * Update the User-Name
+     * @param userId
+     * @param name
+     */
+    public void updateUserName( Integer userId, String name ) {
+        User user = userRepository.findById(userId).get();
+        user.setName(name);
+        userRepository.save(user);
+    }
+
+    /**
+     * Update the User-Description
+     * @param userId
+     * @param description
+     */
+    public void updateUserDescription( Integer userId, String description ) {
+        User user = userRepository.findById(userId).get();
+        user.setDescription(description);
+        userRepository.save(user);
+    }
+
+    /**
+     * Get UserDTO from User
+     *
+     * @param user
+     * @return
+     */
     public UserDTO getUserDTOFromUser(User user) {
         UserDTO userDTO = new UserDTO();
         userDTO.setId(user.getId());
@@ -37,12 +78,23 @@ public class UserService {
 
         return userDTO;
     }
-    
+
+    /**
+     * Get all existing Users
+     *
+     * @return
+     */
     public List<User> getAllUsers(){
         return (List)this.userRepository.findAll();
     }
-    
 
+    /**
+     * Create a new user with name and password
+     *
+     * @param name
+     * @param password
+     * @return
+     */
     public User createNewUser(String name, String password) {
         User user = new User();
         user.setName(name);
@@ -51,10 +103,23 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    /**
+     * Get all Challenges from a User
+     *
+     * @param userId
+     * @return
+     */
     public List<ChallengeDTO> getChallenges( Integer userId ) {
         return challengeService.getChallengesByUser(userId);
     }
 
+    /**
+     * Create a new Challenge with the userId and the challengeDTO
+     *
+     * @param userId
+     * @param challengeDTO
+     * @return
+     */
     public List<ChallengeDTO> createNewChallenge(Integer userId, ChallengeDTO challengeDTO ) {
         challengeService.createNewChallenge(challengeDTO,userId);
         return challengeService.getChallengesByUser(userId);

@@ -19,22 +19,46 @@ public class ChallengeService {
     @Autowired
     private UserService userService;
 
+    /**
+     * Returns all Challenges from a User
+     *
+     * @param userId
+     * @return
+     */
     public List<ChallengeDTO> getChallengesByUser(Integer userId) {
         List<Challenge> challenges = challengeRepository.findByCreator(userService.getUser(userId));
         return getAllChallengeDTOs(challenges);
     }
 
+    /**
+     * Updates a Challenge
+     *
+     * @param challengeDTO
+     * @return
+     */
     public ChallengeDTO updateChallenge(ChallengeDTO challengeDTO) {
-        Challenge challenge = challengeRepository.findFirstByName(challengeDTO.getName());
-        //challenge.se
-
+        Challenge challenge = challengeRepository.findById(challengeDTO.getId()).get();
+        challenge.setUpdatedAt(challengeDTO.updatedAt);
+        challenge.setCurrentValue(challengeDTO.getCurrentValue());
         return challengeDTO;
     }
 
+    /**
+     * Returns all existing Challenges
+     *
+     * @return
+     */
     public List<Challenge> getAllChallenges() {
         return (List) challengeRepository.findAll();
     }
 
+    /**
+     * Creates a new Challenge
+     *
+     * @param challengeDTO
+     * @param userId
+     * @return
+     */
     public Challenge createNewChallenge(ChallengeDTO challengeDTO, Integer userId) {
         Challenge challenge = new Challenge();
         challenge.setName(challengeDTO.getName());
@@ -47,6 +71,12 @@ public class ChallengeService {
         return challengeRepository.save(challenge);
     }
 
+    /**
+     * Creates a ChallengeDTO from a Challenge
+     *
+     * @param challenge
+     * @return
+     */
     public ChallengeDTO getChallengeDTOFromChallenge(Challenge challenge) {
         ChallengeDTO challengeDTO = new ChallengeDTO();
         challengeDTO.setId(challenge.getId());

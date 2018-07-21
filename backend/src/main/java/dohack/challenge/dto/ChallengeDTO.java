@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class ChallengeDTO {
 
-    public Long id;
+    public Integer id;
 
     public String name;
 
@@ -20,7 +20,7 @@ public class ChallengeDTO {
 
     public Integer currentValue;
 
-    public Boolean isFinished;
+    public boolean isFinished;
     
     public Date createdAt;
 
@@ -31,11 +31,11 @@ public class ChallengeDTO {
     
     
     //region Getter Setter
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
