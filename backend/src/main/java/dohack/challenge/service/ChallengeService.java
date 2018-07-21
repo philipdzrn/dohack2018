@@ -47,6 +47,8 @@ public class ChallengeService {
         challengeDTO.setEnd(challenge.getEndDate());
         challengeDTO.setGoal(challenge.getGoal());
         challengeDTO.setFinished(challenge.getFinished());
+        challengeDTO.setCreatedAt(challenge.getCreatedAt());
+        challengeDTO.setCreator(challenge.getCreator());
         return challengeDTO;
     }
 }

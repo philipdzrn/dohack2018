@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -29,7 +31,8 @@ public class ChallengeController {
         return new ResponseEntity(challengesByUser, HttpStatus.OK);
     }
     
-    public List<Challenge> getRanking(){
+    @RequestMapping(value = "/ranking", method = RequestMethod.GET)
+    public List<ChallengeDTO> getRanking(){
         // Get all challenges
         List<Challenge> challenges = this.challengeService.getAllChallenges();
         
@@ -39,9 +42,9 @@ public class ChallengeController {
         // Create DTOs to send back to client
         List<ChallengeDTO> challengeDTOS = new ArrayList<>();
         for(Challenge challenge : challenges ){
-            // todo
+            challengeDTOS.add(this.challengeService.getChallengeDTOFromChallenge(challenge));
         }
         
-        return null;
+        return challengeDTOS;
     }
 }

@@ -22,6 +22,8 @@ public class ChallengeDTO {
     
     public User creator;
     
+    
+    
     //region Getter Setter
     public String getName() {
         return name;
@@ -70,5 +72,22 @@ public class ChallengeDTO {
     public void setFinished(Boolean finished) {
         isFinished = finished;
     }
+    
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+    
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+    
+    public User getCreator() {
+        return creator;
+    }
+    
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
+    
     //endregion
 }
