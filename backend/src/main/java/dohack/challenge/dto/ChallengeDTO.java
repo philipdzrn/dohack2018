@@ -1,7 +1,6 @@
 package dohack.challenge.dto;
 
 import dohack.user.dto.UserDTO;
-import dohack.user.model.User;
 
 import java.util.Date;
 
@@ -102,11 +101,11 @@ public class ChallengeDTO {
         this.currentValue = currentValue;
     }
 
-    public Date getUpdateddAt() {
+    public Date getUpdatedAt() {
         return updateddAt;
     }
 
-    public void setUpdateddAt(Date updateddAt) {
+    public void setUpdatedAt(Date updateddAt) {
         this.updateddAt = updateddAt;
     }
 
