@@ -9,6 +9,7 @@ import dohack.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -64,5 +65,19 @@ public class ChallengeService {
         challengeDTO.setCreatedAt(challenge.getCreatedAt());
         challengeDTO.setCreator(userService.getUserDTOFromUser(challenge.getCreator()));
         return challengeDTO;
+    }
+    
+    /**
+     * Get all challenge DTOs from challenge list
+     * @param challengesByUser
+     * @return
+     */
+    public List<ChallengeDTO> getAllChallengeDTOs(List<Challenge> challengesByUser){
+        List<ChallengeDTO> challengeDTOS = new ArrayList<>();
+        for(Challenge challenge : challengesByUser){
+            challengeDTOS.add(getChallengeDTOFromChallenge(challenge));
+        }
+        
+        return challengeDTOS;
     }
 }
