@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {UserService} from "./user/user.service";
+import {ChallengeService} from "./challenge/challenge.service";
 
 @Component({
   selector: 'app-root',
@@ -8,12 +8,15 @@ import {UserService} from "./user/user.service";
 })
 export class AppComponent {
 
-  constructor(private userService: UserService) {
+  constructor(private challengeService: ChallengeService) {
   }
 
-  title = this.userService.getCurrentUserId();
+  title = "";
 
   testOnClick(): void {
-    alert("test");
+    this.challengeService.getChallenges().subscribe((result) => {
+      console.dir(result);
+      this.title = result.message;
+    });
   }
 }
