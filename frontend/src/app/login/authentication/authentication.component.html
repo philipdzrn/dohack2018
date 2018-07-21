@@ -1,12 +1,12 @@
 <mat-card>
   <mat-card-title>
-    Login/Register
+    {{title}}
   </mat-card-title>
   <mat-card-content>
     <app-credentials (credentialsChanged)="credentialsOnChange($event)"></app-credentials>
   </mat-card-content>
   <mat-card-actions>
-      <app-authentication-actions (onLogin)="login()" (onRegister)="register()"></app-authentication-actions>
+      <app-authentication-actions (onModeChanged)="modeChanged($event)" (onLogin)="login()" (onRegister)="register()"></app-authentication-actions>
   </mat-card-actions>
 </mat-card>
 
