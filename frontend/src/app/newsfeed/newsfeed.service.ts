@@ -4,40 +4,22 @@ import {of} from 'rxjs/observable/of';
 import {Challenge} from "../challenge/challenge";
 import {NewsfeedChallenge} from "./newsfeed-challenge";
 import {User} from "../login/user";
+import {HttpClient} from "@angular/common/http";
+import {UrlService} from "../utils/url.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsfeedService {
 
-  constructor() {
+  baseUrl: string = this.urlService.getBaseUrl() + "newfeed/";
+
+  constructor(private urlService: UrlService,
+              private httpClient: HttpClient) {
   }
 
   public getNewsfeed(): Observable<NewsfeedChallenge[]> {
-
-    let feed: NewsfeedChallenge[] = [];
-
-    let newsfeedChallenge = new NewsfeedChallenge();
-
-    let challenge = new Challenge();
-
-    challenge.name = "Pushups";
-
-    let user = new User();
-    user.name = "Peter";
-
-    challenge.id = 2;
-    challenge.creator = user;
-    challenge.description = "Beschreibung";
-    challenge.currentValue = 15;
-    challenge.goal = 35;
-
-    newsfeedChallenge.challengeDTO = challenge;
-
-    feed.push(newsfeedChallenge);
-    feed.push(newsfeedChallenge);
-
-    return of(feed);
-
+    let url = this.baseUrl;
+    return this.httpClient.get<NewsfeedChallenge[]>(url);
   }
 }
