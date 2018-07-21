@@ -24,11 +24,6 @@ public class ChallengeService {
         return getAllChallengeDTOs(challenges);
     }
 
-    public List<ChallengeDTO> getChallengesByUser(String userId) {
-        List<Challenge> challenges = challengeRepository.findByCreator(userService.getUser(userId));
-        return getAllChallengeDTOs(challenges);
-    }
-
     public ChallengeDTO updateChallenge(ChallengeDTO challengeDTO) {
         Challenge challenge = challengeRepository.findFirstByName(challengeDTO.getName());
         //challenge.se
@@ -54,6 +49,7 @@ public class ChallengeService {
 
     public ChallengeDTO getChallengeDTOFromChallenge(Challenge challenge) {
         ChallengeDTO challengeDTO = new ChallengeDTO();
+        challengeDTO.setId(challenge.getId());
         challengeDTO.setName(challenge.getName());
         challengeDTO.setDescription(challenge.getDescription());
         challengeDTO.setStart(challenge.getStartDate());

@@ -18,12 +18,12 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ResponseEntity<List<ChallengeDTO>> overview(@PathVariable("userId") String userId) {
+    public ResponseEntity<List<ChallengeDTO>> overview(@PathVariable("userId") Integer userId) {
         return new ResponseEntity(userService.getChallenges(userId), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/profile")
-    public UserDTO getProfile(@PathVariable("userId") String userId) {
+    public UserDTO getProfile(@PathVariable("userId") Integer userId) {
         return userService.getUserDTOFromUser(userService.getUser(userId));
     }
 
