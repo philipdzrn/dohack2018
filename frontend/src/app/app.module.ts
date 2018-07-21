@@ -32,6 +32,7 @@ import {NewsfeedComponent} from './newsfeed/newsfeed.component';
 import {NewsfeedChallengeComponent} from './newsfeed/newsfeed-challenge/newsfeed-challenge.component';
 import {RouterModule, Routes} from "@angular/router";
 import { RankingComponent } from './ranking/ranking.component';
+import { RankingEntryComponent } from './ranking/ranking-entry/ranking-entry.component';
 
 const appRoutes: Routes = [
   { path: 'newsfeed', component: NewsfeedComponent },
@@ -69,7 +70,8 @@ const appRoutes: Routes = [
     ChallengeWizardDataComponent,
     NewsfeedComponent,
     NewsfeedChallengeComponent,
-    RankingComponent
+    RankingComponent,
+    RankingEntryComponent
   ],
   imports: [
     RouterModule.forRoot(
