@@ -38,6 +38,4 @@ export class AuthenticationService {
   public getCurrentUserId(): string {
     return sessionStorage.getItem(this.currentUserIdStorageKey);
   }
-
-
 }
