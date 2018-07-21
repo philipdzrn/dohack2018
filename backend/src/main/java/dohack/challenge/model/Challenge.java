@@ -1,6 +1,8 @@
 package dohack.challenge.model;
 
 
+import dohack.user.model.User;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -36,9 +38,7 @@ public class Challenge implements Serializable {
     private int goal;
 
 
-    // TODO: creator auf User umstellen
     @Basic
     @Column
     private String creator;
-
 }
