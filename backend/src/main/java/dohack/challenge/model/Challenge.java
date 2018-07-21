@@ -10,7 +10,8 @@ import java.util.Date;
 @Entity
 @Table(name = "challenges")
 public class Challenge implements Serializable {
-
+    
+    //region Attributes
     @Id
     @GeneratedValue
     private Long id;
@@ -53,12 +54,26 @@ public class Challenge implements Serializable {
 
     @ManyToOne
     private User creator;
-
-    /*
-    @OneToMany( targetEntity = UserLikesChallenge.class )
-    List<UserLikesChallenge> usersLiked;
-    */
-
+    //endregion
+    
+    //region Constructors
+    public Challenge(String name, String description, Date startDate, Date endDate, Integer goal, Integer currentValue, Boolean isFinished, Date createdAt, Date updatedAt, User creator) {
+        this.name = name;
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.goal = goal;
+        this.currentValue = currentValue;
+        this.isFinished = isFinished;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.creator = creator;
+    }
+    
+    public Challenge() {
+    }
+    //endregion
+    
     //region Getter Setter
     public Long getId() {
         return id;

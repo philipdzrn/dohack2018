@@ -5,7 +5,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
-
+    
+    //region Attributes
     @Id
     @GeneratedValue
     private Long id;
@@ -25,15 +26,20 @@ public class User {
     @Basic
     @Column
     private String description;
-
-    /*
-    @OneToMany( targetEntity = Challenge.class )
-    List<Challenge> challenges;
-
-    @OneToMany( targetEntity = UserLikesChallenge.class )
-    List<UserLikesChallenge> challengesLiked;
-    */
-
+    //endregion
+    
+    //region Constructors
+    public User(String name, String password, Integer numberFinishedChallenges, String description) {
+        this.name = name;
+        this.password = password;
+        this.numberFinishedChallenges = numberFinishedChallenges;
+        this.description = description;
+    }
+    
+    public User() {
+    }
+    //endregion
+    
     //region Getter Setter
     public Long getId() {
         return id;
