@@ -1,11 +1,11 @@
 
   <form class="ChallengeCreateClass">
     <mat-form-field class="ChallengeCreateName">
-      <input matInput placeholder="Name">
+      <input matInput (change)="challengeCreateOnChange()" placeholder="Name">
     </mat-form-field>
 
     <mat-form-field class="ChallengeDescription">
-      <textarea matInput placeholder="Description"></textarea>
+      <textarea matInput (change)="challengeCreateOnChange()" placeholder="Description"></textarea>
     </mat-form-field>
 
     <mat-form-field>
@@ -15,7 +15,7 @@
     </mat-form-field>
 
     <mat-form-field class="ChallengeGoalValue">
-      <textarea matInput placeholder="Goal value"></textarea>
+      <textarea matInput (change)="challengeCreateOnChange()" placeholder="Goal value"></textarea>
     </mat-form-field>
 
   </form>
