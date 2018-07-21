@@ -21,18 +21,13 @@ public class User {
 
     @Basic
     @Column
-    private Integer numberFinishedChallenges;
-
-    @Basic
-    @Column
     private String description;
     //endregion
     
     //region Constructors
-    public User(String name, String password, Integer numberFinishedChallenges, String description) {
+    public User(String name, String password, String description) {
         this.name = name;
         this.password = password;
-        this.numberFinishedChallenges = numberFinishedChallenges;
         this.description = description;
     }
     
@@ -64,14 +59,7 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public Integer getNumberFinishedChallenges() {
-        return numberFinishedChallenges;
-    }
-
-    public void setNumberFinishedChallenges(Integer numberFinishedChallenges) {
-        this.numberFinishedChallenges = numberFinishedChallenges;
-    }
+    
 
     public String getDescription() {
         return description;
