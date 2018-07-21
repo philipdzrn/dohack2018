@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
@@ -35,6 +35,7 @@ import { RankingComponent } from './ranking/ranking.component';
 import { RankingEntryComponent } from './ranking/ranking-entry/ranking-entry.component';
 import {ChallengeComponent} from './challenge/challenge.component';
 import { ProfileComponent } from './profile/profile.component';
+import {UserIdInterceptor} from "./utils/user-id-interceptor";
 
 const appRoutes: Routes = [
   {path: 'newsfeed', component: NewsfeedComponent},
@@ -102,7 +103,13 @@ const appRoutes: Routes = [
     MatNativeDateModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UserIdInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {UrlService} from "../utils/url.service";
 import {UserCredentials} from "./user-credentials";
 import {HttpClient} from "@angular/common/http";
@@ -10,20 +10,24 @@ import {User} from "./user";
 export class AuthenticationService {
 
   constructor(private urlService: UrlService,
-              private httpClient: HttpClient) { }
+              private httpClient: HttpClient) {
+  }
 
   baseUrl: string = this.urlService.getBaseUrl() + "auth";
   currentUserIdStorageKey: string = "currentUserId";
 
   public login(credentials: UserCredentials) {
+
     let url = this.baseUrl + "/login";
 
     this.httpClient.post(url, credentials).subscribe((user: User) => {
-        this.saveUserIdToSessionStorage(user.id);
+      console.dir("test");
+      this.saveUserIdToSessionStorage(user.id);
     });
   }
 
   public register(credentials: UserCredentials) {
+    console.dir("test");
     let url = this.baseUrl + "/register";
 
     this.httpClient.post(url, credentials).subscribe((user: User) => {
@@ -36,8 +40,12 @@ export class AuthenticationService {
   }
 
   public getCurrentUserId(): string {
-    return sessionStorage.getItem(this.currentUserIdStorageKey);
+    let userId = sessionStorage.getItem(this.currentUserIdStorageKey);
+
+    if(!userId) {
+      return "";
+    } else {
+      return userId;
+    }
   }
-
-
 }
