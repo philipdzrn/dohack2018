@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/createChallenge", method = RequestMethod.POST )
-    public ResponseEntity<List<ChallengeDTO>> createChallenge(@PathVariable("userId") String userId, @RequestBody ChallengeDTO challengeDTO) {
+    public ResponseEntity<List<ChallengeDTO>> createChallenge(@PathVariable("userId") Integer userId, @RequestBody ChallengeDTO challengeDTO) {
         return new ResponseEntity(userService.createNewChallenge(userId,challengeDTO), HttpStatus.OK);
     }
 }
