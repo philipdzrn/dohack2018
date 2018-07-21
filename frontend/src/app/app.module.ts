@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AuthenticationComponent } from './login/authentication/authentication.component';
 import { CredentialsComponent } from './login/credentials/credentials.component';
 import { AuthenticationActionsComponent } from './login/authentication-actions/authentication-actions.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AuthenticationActionsComponent } from './login/authentication-actions/a
     NavbarComponent,
     AuthenticationComponent,
     CredentialsComponent,
-    AuthenticationActionsComponent
+    AuthenticationActionsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
