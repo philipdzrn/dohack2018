@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from "../authentication.service";
 
 @Component({
   selector: 'app-authentication-actions',
@@ -9,12 +10,14 @@ export class AuthenticationActionsComponent implements OnInit {
 
   isSignUpModeActive: boolean;
 
-  constructor() { }
+  constructor(private authenticationService:AuthenticationService) {
+  }
 
   ngOnInit() {
   }
 
   public submit(): void {
+    this.isSignUpModeActive ? this.authenticationService.register() : this.authenticationService.login();
     alert("submit");
   }
 
