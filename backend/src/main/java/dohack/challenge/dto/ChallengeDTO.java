@@ -1,7 +1,6 @@
 package dohack.challenge.dto;
 
 import dohack.user.dto.UserDTO;
-import dohack.user.model.User;
 
 import java.util.Date;
 
@@ -17,9 +16,13 @@ public class ChallengeDTO {
 
     public Integer goal;
 
+    public Integer currentValue;
+
     public Boolean isFinished;
     
     public Date createdAt;
+
+    public Date updatedAt;
     
     public UserDTO creator;
     
@@ -89,6 +92,22 @@ public class ChallengeDTO {
     public void setCreator(UserDTO creator) {
         this.creator = creator;
     }
-    
+
+    public Integer getCurrentValue() {
+        return currentValue;
+    }
+
+    public void setCurrentValue(Integer currentValue) {
+        this.currentValue = currentValue;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
     //endregion
 }

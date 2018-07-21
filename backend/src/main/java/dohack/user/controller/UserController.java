@@ -28,29 +28,30 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/profile")
-    public UserDTO getUser(@PathVariable("userId") String userId) {
-        return userService.getUserDTOFromUser(userRepository.findFirstByName(userId));
-    }
-    @RequestMapping(value = "/createChallenge", method = RequestMethod.POST )
-    public ResponseEntity<List<ChallengeDTO>> createChallenge(@PathVariable("userId") String userId, @RequestBody ChallengeDTO challengeDTO) {
-
-        challengeService.createNewChallenge(challengeDTO,userId);
-        
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ResponseEntity<List<ChallengeDTO>> overview(@PathVariable("userId") String userId) {
         List<Challenge> challenges = challengeService.getChallengesByUser(userId);
-        List<ChallengeDTO> dtoChallenges = new ArrayList<ChallengeDTO>();
+        List<ChallengeDTO> dtoChallenges = new ArrayList<>();
         for( Challenge challenge : challenges )
             dtoChallenges.add( challengeService.getChallengeDTOFromChallenge(challenge) );
 
         return new ResponseEntity(dtoChallenges, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/challenges", method = RequestMethod.GET)
-    public ResponseEntity<List<ChallengeDTO>> getChallenges(@PathVariable("userId") String userId) {
+    @RequestMapping(value = "/profile")
+    public UserDTO getProfile(@PathVariable("userId") String userId) {
+        return userService.getUserDTOFromUser(userRepository.findFirstByName(userId));
+    }
+
+    @RequestMapping(value = "/createChallenge", method = RequestMethod.POST )
+    public ResponseEntity<List<ChallengeDTO>> createChallenge(@PathVariable("userId") String userId, @RequestBody ChallengeDTO challengeDTO) {
+
+        challengeService.createNewChallenge(challengeDTO,userId);
+
         List<Challenge> challenges = challengeService.getChallengesByUser(userId);
         List<ChallengeDTO> dtoChallenges = new ArrayList<ChallengeDTO>();
         for( Challenge challenge : challenges )
-                dtoChallenges.add( challengeService.getChallengeDTOFromChallenge(challenge) );
+            dtoChallenges.add( challengeService.getChallengeDTOFromChallenge(challenge) );
 
         return new ResponseEntity(dtoChallenges, HttpStatus.OK);
     }

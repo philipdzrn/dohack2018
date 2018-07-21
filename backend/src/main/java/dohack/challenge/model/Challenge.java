@@ -37,11 +37,19 @@ public class Challenge implements Serializable {
 
     @Basic
     @Column
+    private Integer currentValue;
+
+    @Basic
+    @Column
     private Boolean isFinished;
-    
+
     @Basic
     @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date createdAt;
+
+    @Basic
+    @Column
+    private Date updatedAt;
 
     @ManyToOne
     private User creator;
@@ -115,14 +123,30 @@ public class Challenge implements Serializable {
     public void setCreator(User creator) {
         this.creator = creator;
     }
-    
+
     public Date getCreatedAt() {
         return createdAt;
     }
-    
+
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
-    
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Integer getCurrentValue() {
+        return currentValue;
+    }
+
+    public void setCurrentValue(Integer currentValue) {
+        this.currentValue = currentValue;
+    }
+
     //endregion
 }
