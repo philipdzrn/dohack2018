@@ -14,7 +14,8 @@ import {
   MatIconModule,
   MatListModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatMenuModule
 } from '@angular/material';
 
 import {AppComponent} from './app.component';
@@ -82,6 +83,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
