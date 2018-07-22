@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Challenge} from "../../challenge/challenge";
+import {NewsfeedChallenge} from "../newsfeed-challenge";
 
 @Component({
   selector: 'app-newsfeed-challenge',
@@ -10,6 +11,14 @@ export class NewsfeedChallengeComponent implements OnInit {
 
   @Input()
   newsfeedChallenge: Challenge;
+
+  @Input()
+  likesNumber:NewsfeedChallenge;
+
+  public like(){
+
+    alert("test");
+  }
 
   constructor() { }
 
