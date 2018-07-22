@@ -164,4 +164,17 @@ public class Challenge implements Serializable {
     }
 
     //endregion
+
+    @PrePersist
+    public void prePersist() {
+        Date now = new Date();
+        startDate = now;
+        updatedAt = now;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        Date now = new Date();
+        updatedAt = now;
+    }
 }
