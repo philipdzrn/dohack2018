@@ -20,4 +20,9 @@ export class NewsfeedChallengeComponent implements OnInit {
   ngOnInit() {
   }
 
+  public incLike(event){
+    this.likesNumber++;
+    event.stopPropagation();
+  }
+
 }

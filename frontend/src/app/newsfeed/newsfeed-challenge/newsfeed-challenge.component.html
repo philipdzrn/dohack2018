@@ -1,5 +1,5 @@
-<a routerLink="/challenge/{{newsfeedChallenge.id}}" routerLinkActive="active">
-  <mat-card>
+<mat-card>
+  <a routerLink="/challenge/{{newsfeedChallenge.id}}" routerLinkActive="active">
     <mat-card-header>
       <mat-card-title>"{{newsfeedChallenge.name}}" von {{newsfeedChallenge.creator.name}}</mat-card-title>
       <mat-card-subtitle>{{newsfeedChallenge.description}}</mat-card-subtitle>
@@ -7,13 +7,15 @@
     </mat-card-header>
     <mat-card-subtitle>{{newsfeedChallenge.currentValue}} von {{newsfeedChallenge.goal}} abgeschlossen!
     </mat-card-subtitle>
-    <mat-progress-bar mode="determinate" [value]="newsfeedChallenge.currentValue / newsfeedChallenge.goal * 100"></mat-progress-bar>
-    <mat-card-content>
-      <div>
-        <mat-icon>favorite</mat-icon>
-        {{likesNumber}}
-      </div>
-    </mat-card-content>
+    <mat-progress-bar mode="determinate"
+                      [value]="newsfeedChallenge.currentValue / newsfeedChallenge.goal * 100"></mat-progress-bar>
+  </a>
+  <mat-card-content>
+    <div>
+      <mat-icon (click)="incLike($event)">favorite</mat-icon>
+      {{likesNumber}}
+    </div>
+  </mat-card-content>
 
-  </mat-card>
-</a>
+</mat-card>
+
