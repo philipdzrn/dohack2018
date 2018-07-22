@@ -2,9 +2,13 @@
   <mat-card-content>
     <app-challenge-wizard-data [isDisabled]="true" [challenge]="challenge"></app-challenge-wizard-data>
   </mat-card-content>
-  <mat-card-footer *ngIf="challengeBelongsToCurrentUser()">
-    <button [disabled]="challenge.isFinished" (click)="addProgressButtonClicked()" mat-button>
+  <mat-card-footer *ngIf="challengeBelongsToCurrentUser() && !challenge.isFinished">
+    <button (click)="addProgressButtonClicked()" mat-button>
     Fortschritt hinzufügen
     </button>
   </mat-card-footer>
+    <div style="text-align: center; margin: 10px" *ngIf="challenge.isFinished" >
+      Finished!
+    </div>
+
 </mat-card>
