@@ -15,10 +15,6 @@ export class NewsfeedChallengeComponent implements OnInit {
   @Input()
   likesNumber:NewsfeedChallenge;
 
-  public like(){
-
-    alert("test");
-  }
 
   constructor() { }
 
