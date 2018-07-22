@@ -2,7 +2,7 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+body { margin: 0; margin-top: 65px; font-family: 'Roboto', sans-serif; }
 
 mat-card {
   margin: 10px;
