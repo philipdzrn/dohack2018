@@ -19,8 +19,9 @@ export class ChallengeComponent implements OnInit {
     this.challenge = new Challenge();
     const id = this.route.snapshot.paramMap.get('id');
 
-    this.challengeService.getChallenges().subscribe((result) => {
-
+    this.challengeService.getChallenge(id).subscribe((result) => {
+      result.endDate = new Date(result.endDate);
+      this.challenge = result;
     });
   }
 

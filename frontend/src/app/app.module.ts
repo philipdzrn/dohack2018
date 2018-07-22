@@ -36,13 +36,16 @@ import { RankingEntryComponent } from './ranking/ranking-entry/ranking-entry.com
 import {ChallengeComponent} from './challenge/challenge.component';
 import { ProfileComponent } from './profile/profile.component';
 import {UserIdInterceptor} from "./utils/user-id-interceptor";
+import { HomeComponent } from './home/home.component';
+import { HomeEntryComponent } from './home/home-entry/home-entry.component';
 
 const appRoutes: Routes = [
   {path: 'newsfeed', component: NewsfeedComponent},
   {path: 'challenge/create', component: ChallengeWizardComponent},
   {path: 'ranking', component: RankingComponent},
   {path: 'challenge/:id', component: ChallengeComponent},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile/:id', component: ProfileComponent},
+  {path: 'home', component: HomeComponent},
   {
     path: '',
     redirectTo: '/newsfeed',
@@ -80,6 +83,8 @@ const appRoutes: Routes = [
     RankingEntryComponent,
     ChallengeComponent,
     ProfileComponent,
+    HomeComponent,
+    HomeEntryComponent,
   ],
   imports: [
     RouterModule.forRoot(

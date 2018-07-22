@@ -23,7 +23,7 @@ export class ChallengeWizardDataComponent implements OnInit {
   }
 
   public challengeCreateOnChange() {
-    if (this.challenge.name && this.challenge.description && this.challenge.end && this.challenge.goal)
+    if (this.challenge.name && this.challenge.description && this.challenge.endDate && this.challenge.goal)
       this.challengeChanged.emit(this.challenge);
   }
 }

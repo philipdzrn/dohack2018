@@ -3,10 +3,10 @@
     <mat-icon>list</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
+    <a mat-menu-item (click)="onNavigate('Home')" routerLink="/home">Home</a>
     <a mat-menu-item (click)="onNavigate('New Challenge')" routerLink="/challenge/create">Create Challenge</a>
     <a mat-menu-item (click)="onNavigate('Newsfeed')" routerLink="/newsfeed">Newsfeed</a>
     <a mat-menu-item (click)="onNavigate('Ranking')" routerLink="/ranking">Ranking</a>
-    <a mat-menu-item (click)="onNavigate('Profile')" routerLink="/profile">Profile</a>
   </mat-menu>
 
   <span>{{headertitle}}</span>

@@ -25,11 +25,12 @@ export class ChallengeService {
 
     return this.httpClient.get<Challenge[]>(url);
   }
-/*
+
   public getChallenge(id): Observable<Challenge> {
-    let url = this.baseUrl + id;
+    let url = this.baseUrl + "challenges/" + id;
+    return this.httpClient.get<Challenge>(url);
   }
-*/
+
   public createChallenge(challenge: Challenge): Observable<any> {
     let url = this.baseUrl + "challenges/";
 
