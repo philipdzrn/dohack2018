@@ -36,6 +36,7 @@ import { RankingEntryComponent } from './ranking/ranking-entry/ranking-entry.com
 import {ChallengeComponent} from './challenge/challenge.component';
 import { ProfileComponent } from './profile/profile.component';
 import {UserIdInterceptor} from "./utils/user-id-interceptor";
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
   {path: 'newsfeed', component: NewsfeedComponent},
@@ -80,6 +81,7 @@ const appRoutes: Routes = [
     RankingEntryComponent,
     ChallengeComponent,
     ProfileComponent,
+    HomeComponent,
   ],
   imports: [
     RouterModule.forRoot(
