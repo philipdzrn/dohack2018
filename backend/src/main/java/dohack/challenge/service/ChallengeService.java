@@ -3,7 +3,6 @@ package dohack.challenge.service;
 import dohack.challenge.dto.ChallengeDTO;
 import dohack.challenge.model.Challenge;
 import dohack.challenge.repo.ChallengeRepository;
-import dohack.user.dto.UserDTO;
 import dohack.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class ChallengeService {
@@ -42,7 +40,7 @@ public class ChallengeService {
     public void updateCurrentValue(Integer challengeId, Integer currentValue) {
         Challenge challenge = challengeRepository.findById(challengeId).get();
         challenge.setUpdatedAt(new Date());
-        challenge.setCurrentValue(currentValue);
+        challenge.setCurrentValue(challenge.getCurrentValue() + currentValue);
 
         if( currentValue >= challenge.getGoal() )
             challenge.setFinished(true);
