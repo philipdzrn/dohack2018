@@ -17,6 +17,7 @@ import {
   MatInputModule,
   MatMenuModule,
   MatDialogModule,
+  MatProgressBarModule,
 } from '@angular/material';
 
 import {AppComponent} from './app.component';
@@ -110,7 +111,8 @@ const appRoutes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressBarModule
   ],
   providers: [
     {
