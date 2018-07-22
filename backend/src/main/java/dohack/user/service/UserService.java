@@ -76,7 +76,6 @@ public class UserService {
         userDTO.setId(user.getId());
         userDTO.setName(user.getName());
         userDTO.setDescription(user.getDescription());
-
         return userDTO;
     }
 

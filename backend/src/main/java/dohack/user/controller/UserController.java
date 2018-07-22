@@ -3,6 +3,7 @@ package dohack.user.controller;
 import dohack.challenge.dto.ChallengeDTO;
 import dohack.challenge.model.Challenge;
 import dohack.challenge.service.ChallengeService;
+import dohack.ranking.service.RankingService;
 import dohack.user.dto.UserDTO;
 import dohack.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class UserController {
     @Autowired
     private ChallengeService challengeService;
 
+    @Autowired
+    private RankingService rankingService;
+
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public List<UserDTO> getUsers() {
         return userService.getAllUserDTOs();
@@ -31,7 +35,10 @@ public class UserController {
 
     @RequestMapping(value = "/users/{userId}", method = RequestMethod.GET)
     public UserDTO getUser(@PathVariable("userId") Integer userId) {
-        return userService.getUserDTOFromUser(userService.getUser(userId));
+        UserDTO userDTO = userService.getUserDTOFromUser(userService.getUser(userId));
+        Integer temp = rankingService.getNumbFinishedChallenges(userService.getUser(userId));
+        userDTO.setNumberFinishedChallenges(temp);
+        return userDTO;
     }
 
     @RequestMapping(value = "/users/{userId}/challenges", method = RequestMethod.GET)
