@@ -14,3 +14,7 @@ export class Challenge {
   updatedAt: Date;
   creator: User;
 }
+
+export interface ChallengeProgress {
+  value: string;
+}

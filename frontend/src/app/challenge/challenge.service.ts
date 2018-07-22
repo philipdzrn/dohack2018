@@ -31,10 +31,18 @@ export class ChallengeService {
     return this.httpClient.get<Challenge>(url);
   }
 
+  public updateChallenge(challengeId: number, value: number): Observable<any> {
+    let url = this.baseUrl + "challenges/" + challengeId;
+
+    let data = {
+      currentValue: value
+    };
+
+    return this.httpClient.post(url, data);
+  }
+
   public createChallenge(challenge: Challenge): Observable<any> {
     let url = this.baseUrl + "challenges/";
-
-    console.dir(challenge);
     return this.httpClient.post(url, challenge);
   }
 }
