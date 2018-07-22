@@ -7,7 +7,7 @@
 
     </mat-card-header>
     <mat-card-subtitle>
-      <mat-progress-bar mode="determinate" value="{{challenge.currentValue}}"></mat-progress-bar>
+      <mat-progress-bar mode="determinate" [value]="challenge.currentValue / challenge.goal * 100"></mat-progress-bar>
     </mat-card-subtitle>
       <mat-card-subtitle>Pending until {{challenge.endDate | date: 'MM/dd/yyyy'}}</mat-card-subtitle>
 

@@ -126,6 +126,8 @@ public class ChallengeService {
         for (Challenge challenge : challengesByUser)
             challengeDTOS.add(getChallengeDTOFromChallenge(challenge));
 
+        challengeDTOS.sort( (arg1, arg2) -> arg1.getEndDate().compareTo(arg2.getEndDate()));
+
         return challengeDTOS;
     }
     
