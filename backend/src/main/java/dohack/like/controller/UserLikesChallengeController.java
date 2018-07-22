@@ -12,7 +12,7 @@ public class UserLikesChallengeController {
     @Autowired
     private UserLikesChallengeService userLikesChallengeService;
 
-    @RequestMapping( value= "/{challengeId}/like", method = RequestMethod.POST )
+    @RequestMapping( value= "/challenge/{challengeId}/like", method = RequestMethod.POST )
     public ResponseEntity addUserLikesChallenge(@RequestHeader(value = "userid") Integer userId, @PathVariable("challengeId") Integer challengeId) {
         userLikesChallengeService.addUserLikesChallenge( userId, challengeId );
         return new ResponseEntity(HttpStatus.CREATED);

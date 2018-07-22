@@ -3,6 +3,7 @@ package dohack.challenge.service;
 import dohack.challenge.dto.ChallengeDTO;
 import dohack.challenge.model.Challenge;
 import dohack.challenge.repo.ChallengeRepository;
+import dohack.like.service.UserLikesChallengeService;
 import dohack.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,9 @@ public class ChallengeService {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserLikesChallengeService userLikesChallengeService;
 
     /**
      * Returns all Challenges from a User

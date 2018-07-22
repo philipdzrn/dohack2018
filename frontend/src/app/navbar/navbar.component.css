@@ -3,9 +3,7 @@ mat-toolbar {
   position: -webkit-sticky; /* For macOS/iOS Safari */
   top: 0; /* Sets the sticky toolbar to be on top */
   z-index: 1000;
-  /*
-  background: #1CFF00;
-  box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
-   */
 
+  background: #A06AFF;
+  box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
 }
