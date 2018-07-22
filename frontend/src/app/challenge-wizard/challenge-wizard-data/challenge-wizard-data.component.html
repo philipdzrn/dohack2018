@@ -18,5 +18,9 @@
       <textarea matInput [disabled]="isDisabled" name="goalinput" (change)="challengeCreateOnChange()" [(ngModel)]="challenge.goal" placeholder="Goal value"></textarea>
     </mat-form-field>
 
+    <mat-form-field class="ChallengeCurrentValue">
+      <textarea matInput [disabled]="isDisabled" name="currentValue" [(ngModel)]="challenge.currentValue" placeholder="Current value"></textarea>
+    </mat-form-field>
+
   </form>
 
