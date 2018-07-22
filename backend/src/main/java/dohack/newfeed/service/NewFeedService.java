@@ -43,6 +43,8 @@ public class NewFeedService {
          newFeeds.add(newFeedDTO);
       }
       
+      newFeeds.sort((a,b) -> b.getChallengeDTO().updatedAt.compareTo(a.getChallengeDTO().updatedAt));
+      
       return newFeeds;
    }
 }
