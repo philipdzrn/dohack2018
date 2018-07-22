@@ -119,7 +119,8 @@ const appRoutes: Routes = [
       provide: HTTP_INTERCEPTORS,
       useClass: UserIdInterceptor,
       multi: true
-    }
+    },
+    {provide: Window, useValue: window},
   ],
   entryComponents: [
     ChallengeAddProgressDialogComponent

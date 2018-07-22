@@ -26,6 +26,8 @@ export class AuthenticationComponent implements OnInit {
   }
 
   public login(): void {
+
+
     if (this.credentials) {
       this.authenticationService.login(this.credentials);
     }

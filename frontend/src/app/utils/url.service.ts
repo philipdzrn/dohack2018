@@ -5,9 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class UrlService {
 
-  constructor() { }
+  constructor(private window: Window) { }
 
   public getBaseUrl() {
-    return "http://localhost:8090/";
+    let hostname = this.window.location.hostname;
+    return "http://" + hostname + ":8090/";
   }
 }

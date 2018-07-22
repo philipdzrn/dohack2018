@@ -21,13 +21,11 @@ export class AuthenticationService {
     let url = this.baseUrl + "/login";
 
     this.httpClient.post(url, credentials).subscribe((user: User) => {
-      console.dir("test");
       this.saveUserIdToSessionStorage(user.id);
     });
   }
 
   public register(credentials: UserCredentials) {
-    console.dir("test");
     let url = this.baseUrl + "/register";
 
     this.httpClient.post(url, credentials).subscribe((user: User) => {
