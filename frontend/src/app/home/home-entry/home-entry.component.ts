@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Challenge} from "../../challenge/challenge";
 
 @Component({
@@ -8,9 +8,11 @@ import {Challenge} from "../../challenge/challenge";
 })
 export class HomeEntryComponent implements OnInit {
 
-  challenge:Challenge;
+  @Input()
+  challenge: Challenge;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
