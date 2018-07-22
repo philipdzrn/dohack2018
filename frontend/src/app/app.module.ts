@@ -15,7 +15,8 @@ import {
   MatListModule,
   MatFormFieldModule,
   MatInputModule,
-  MatMenuModule
+  MatMenuModule,
+  MatDialogModule,
 } from '@angular/material';
 
 import {AppComponent} from './app.component';
@@ -31,13 +32,14 @@ import {ChallengeWizardDataComponent} from './challenge-wizard/challenge-wizard-
 import {NewsfeedComponent} from './newsfeed/newsfeed.component';
 import {NewsfeedChallengeComponent} from './newsfeed/newsfeed-challenge/newsfeed-challenge.component';
 import {RouterModule, Routes} from "@angular/router";
-import { RankingComponent } from './ranking/ranking.component';
-import { RankingEntryComponent } from './ranking/ranking-entry/ranking-entry.component';
+import {RankingComponent} from './ranking/ranking.component';
+import {RankingEntryComponent} from './ranking/ranking-entry/ranking-entry.component';
 import {ChallengeComponent} from './challenge/challenge.component';
-import { ProfileComponent } from './profile/profile.component';
+import {ProfileComponent} from './profile/profile.component';
 import {UserIdInterceptor} from "./utils/user-id-interceptor";
-import { HomeComponent } from './home/home.component';
-import { HomeEntryComponent } from './home/home-entry/home-entry.component';
+import {HomeComponent} from './home/home.component';
+import {HomeEntryComponent} from './home/home-entry/home-entry.component';
+import {ChallengeAddProgressDialogComponent} from './challenge/challenge-add-progress-dialog/challenge-add-progress-dialog.component';
 
 const appRoutes: Routes = [
   {path: 'newsfeed', component: NewsfeedComponent},
@@ -48,7 +50,7 @@ const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {
     path: '',
-    redirectTo: '/newsfeed',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
 
@@ -85,6 +87,7 @@ const appRoutes: Routes = [
     ProfileComponent,
     HomeComponent,
     HomeEntryComponent,
+    ChallengeAddProgressDialogComponent,
   ],
   imports: [
     RouterModule.forRoot(
@@ -106,7 +109,8 @@ const appRoutes: Routes = [
     MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [
     {
@@ -114,6 +118,9 @@ const appRoutes: Routes = [
       useClass: UserIdInterceptor,
       multi: true
     }
+  ],
+  entryComponents: [
+    ChallengeAddProgressDialogComponent
   ],
   bootstrap: [AppComponent]
 })

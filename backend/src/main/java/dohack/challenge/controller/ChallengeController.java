@@ -1,6 +1,7 @@
 package dohack.challenge.controller;
 
 import dohack.challenge.dto.ChallengeDTO;
+import dohack.challenge.dto.UpdateChallengeDTO;
 import dohack.challenge.service.ChallengeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,8 +33,8 @@ public class ChallengeController {
     }
 
     @RequestMapping(value = "/{challengeId}", method = RequestMethod.POST)
-    public ResponseEntity updateCurrentValue(@PathVariable("challengeId") Integer challengeId, @RequestBody Integer currentValue) {
-        challengeService.updateCurrentValue(challengeId, currentValue);
+    public ResponseEntity updateCurrentValue(@PathVariable("challengeId") Integer challengeId, @RequestBody UpdateChallengeDTO updateChallengeDTO) {
+        challengeService.updateCurrentValue(challengeId, updateChallengeDTO.getCurrentValue());
         return new ResponseEntity(HttpStatus.OK);
     }
 
