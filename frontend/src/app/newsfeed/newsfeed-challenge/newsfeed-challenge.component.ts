@@ -13,8 +13,7 @@ export class NewsfeedChallengeComponent implements OnInit {
   newsfeedChallenge: Challenge;
 
   @Input()
-  likesNumber:NewsfeedChallenge;
-
+  likesNumber:number;
 
   constructor() { }
 
