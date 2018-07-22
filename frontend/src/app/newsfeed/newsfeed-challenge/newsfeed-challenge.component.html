@@ -12,8 +12,10 @@
   </a>
   <mat-card-content>
     <div>
-      <mat-icon (click)="incLike($event)">favorite</mat-icon>
+      <button (click)="incLike()" [disabled]="likeDisabled">
+      <mat-icon>favorite</mat-icon>
       {{likesNumber}}
+      </button>
     </div>
   </mat-card-content>
 

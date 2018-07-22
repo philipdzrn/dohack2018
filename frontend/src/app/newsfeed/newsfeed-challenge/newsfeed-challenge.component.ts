@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Challenge} from "../../challenge/challenge";
+import {Challenge, LikeByChallenge} from "../../challenge/challenge";
 import {NewsfeedChallenge} from "../newsfeed-challenge";
+import {ChallengeService} from "../../challenge/challenge.service";
 
 @Component({
   selector: 'app-newsfeed-challenge',
@@ -12,17 +13,31 @@ export class NewsfeedChallengeComponent implements OnInit {
   @Input()
   newsfeedChallenge: Challenge;
 
-  @Input()
   likesNumber:number;
 
-  constructor() { }
+  likeDisabled: boolean = false;
+
+  constructor(private challengeService: ChallengeService) { }
 
   ngOnInit() {
+    if(this.newsfeedChallenge) {
+      this.loadChallenge();
+    }
   }
 
-  public incLike(event){
-    this.likesNumber++;
-    event.stopPropagation();
+  public incLike() {
+
+    this.likeDisabled = true;
+    this.challengeService.likeChallenge(this.newsfeedChallenge.id).subscribe(() => {
+      this.loadChallenge();
+    });
+  }
+
+  private loadChallenge() {
+    this.challengeService.getLikesByChallenge(this.newsfeedChallenge.id).subscribe((result: LikeByChallenge) => {
+      this.likesNumber = result.likeCount;
+      this.likeDisabled = result.currentUserLikedChallenge;
+    });
   }
 
 }

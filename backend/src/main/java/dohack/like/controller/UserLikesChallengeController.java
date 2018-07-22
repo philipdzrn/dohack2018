@@ -1,5 +1,7 @@
 package dohack.like.controller;
 
+import dohack.like.dto.LikeByChallengeDTO;
+import dohack.like.model.UserLikesChallenge;
 import dohack.like.service.UserLikesChallengeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,9 +14,18 @@ public class UserLikesChallengeController {
     @Autowired
     private UserLikesChallengeService userLikesChallengeService;
 
-    @RequestMapping( value= "/challenge/{challengeId}/like", method = RequestMethod.POST )
+    @RequestMapping( value= "/challenges/{challengeId}/like", method = RequestMethod.POST )
     public ResponseEntity addUserLikesChallenge(@RequestHeader(value = "userid") Integer userId, @PathVariable("challengeId") Integer challengeId) {
-        userLikesChallengeService.addUserLikesChallenge( userId, challengeId );
+        UserLikesChallenge temp = userLikesChallengeService.addUserLikesChallenge( userId, challengeId);
+        System.out.println(temp);
+        if( temp == null )
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
         return new ResponseEntity(HttpStatus.CREATED);
+    }
+
+    @RequestMapping( value= "/challenges/{challengeId}/likes", method = RequestMethod.GET )
+    public ResponseEntity<LikeByChallengeDTO> getLikes(@RequestHeader(value = "userid") Integer userId, @PathVariable("challengeId") Integer challengeId){
+        LikeByChallengeDTO likeCountByChallengeId = userLikesChallengeService.getLikeCountByChallengeId(userId, challengeId);
+        return new ResponseEntity(likeCountByChallengeId, HttpStatus.OK);
     }
 }

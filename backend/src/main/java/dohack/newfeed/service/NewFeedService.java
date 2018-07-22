@@ -32,7 +32,7 @@ public class NewFeedService {
 
         for (int i = 0; i < challenges.size(); i++) {
             // Get like number by challenge
-            int likeNumber = this.userLikesChallengeService.getLikesByChallenge(challenges.get(i));
+            int likeNumber = this.userLikesChallengeService.getLikesByChallenge(challenges.get(i).getId()).size();
 
             // Create a NewFeedDTO
             NewFeedDTO newFeedDTO = new NewFeedDTO();

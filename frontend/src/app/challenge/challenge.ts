@@ -18,3 +18,8 @@ export class Challenge {
 export interface ChallengeProgress {
   value: string;
 }
+
+export interface LikeByChallenge {
+  likeCount: number;
+  currentUserLikedChallenge: boolean;
+}
