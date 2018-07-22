@@ -4,6 +4,8 @@ import {ActivatedRoute} from "@angular/router";
 import {ChallengeService} from "./challenge.service";
 import {ChallengeAddProgressDialogComponent} from "./challenge-add-progress-dialog/challenge-add-progress-dialog.component";
 import {MatDialog} from "@angular/material";
+import {AuthenticationService} from "../login/authentication.service";
+import {User} from "../login/user";
 
 @Component({
   selector: 'app-challenge',
@@ -16,11 +18,14 @@ export class ChallengeComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private challengeService: ChallengeService,
+              private authenticationService: AuthenticationService,
               private dialog: MatDialog) {
   }
 
   ngOnInit() {
     this.challenge = new Challenge();
+    this.challenge.creator = new User();
+    this.challenge.creator.id = -1;
     const id = this.route.snapshot.paramMap.get('id');
 
     this.loadChallenge(id);
@@ -45,5 +50,13 @@ export class ChallengeComponent implements OnInit {
       result.endDate = new Date(result.endDate);
       this.challenge = result;
     });
+  }
+
+  public challengeBelongsToCurrentUser(): boolean {
+
+    if(!this.challenge) {
+      return false;
+    }
+    return this.authenticationService.getCurrentUserId() == (this.challenge.creator.id + "");
   }
 }
