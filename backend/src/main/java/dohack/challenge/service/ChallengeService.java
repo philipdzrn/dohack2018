@@ -40,12 +40,15 @@ public class ChallengeService {
     public void updateCurrentValue(Integer challengeId, Integer currentValue) {
         Challenge challenge = challengeRepository.findById(challengeId).get();
         challenge.setUpdatedAt(new Date());
-        challenge.setCurrentValue(challenge.getCurrentValue() + currentValue);
 
-        if( currentValue >= challenge.getGoal() )
-            challenge.setFinished(true);
+        if( currentValue != null ) {
+            challenge.setCurrentValue(challenge.getCurrentValue() + currentValue);
 
-        challengeRepository.save(challenge);
+            if (challenge.getCurrentValue() >= challenge.getGoal())
+                challenge.setFinished(true);
+
+            challengeRepository.save(challenge);
+        }
     }
 
     /**

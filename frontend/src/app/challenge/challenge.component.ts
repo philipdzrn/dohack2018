@@ -32,9 +32,10 @@ export class ChallengeComponent implements OnInit {
   }
 
   public addProgressButtonClicked(): void {
-    const dialogRef = this.dialog.open(ChallengeAddProgressDialogComponent, {
+      const dialogRef = this.dialog.open(ChallengeAddProgressDialogComponent, {
       width: '300px',
-      data: {value: this.challenge.currentValue}
+      data: { value: 1 }
+      /* data: {value: this.challenge.currentValue} */
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -59,4 +60,5 @@ export class ChallengeComponent implements OnInit {
     }
     return this.authenticationService.getCurrentUserId() == (this.challenge.creator.id + "");
   }
+
 }

@@ -20,10 +20,15 @@ export class ChallengeWizardDataComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   public challengeCreateOnChange() {
     if (this.challenge.name && this.challenge.description && this.challenge.endDate && this.challenge.goal)
       this.challengeChanged.emit(this.challenge);
+  }
+
+  public isOwnOrCreated(): boolean {
+    return this.isDisabled;
   }
 }
