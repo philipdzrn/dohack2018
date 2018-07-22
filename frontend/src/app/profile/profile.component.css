@@ -1,0 +1,7 @@
+hr, mat-card-header{
+  margin-bottom: 30px;
+}
+
+mat-card-subtitle{
+  font-size: 18px;
+}
