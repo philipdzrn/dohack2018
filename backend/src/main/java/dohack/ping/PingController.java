@@ -14,7 +14,7 @@ public class PingController {
    
    @RequestMapping( value = "/ping")
    public String ping(){
-      seeding.seedData();
+      // seeding.seedData();
       
       return "ping";
    }

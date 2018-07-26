@@ -23,5 +23,5 @@ export class NavbarComponent implements OnInit {
   public onNavigate(title: string): void {
     this.headertitle = title;
   }
-  
+
 }
