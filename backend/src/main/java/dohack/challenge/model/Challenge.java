@@ -168,6 +168,7 @@ public class Challenge implements Serializable {
     @PrePersist
     public void prePersist() {
         Date now = new Date();
+        createdAt = now;
         startDate = now;
         updatedAt = now;
     }
